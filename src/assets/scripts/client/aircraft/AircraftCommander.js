@@ -666,7 +666,7 @@ export default class AircraftCommander {
         }
 
         runway.removeAircraftFromQueue(aircraft.id);
-        aircraft.pilot.configureForTakeoff(airport.initial_alt, runway, aircraft.model.speed.cruise);
+        aircraft.pilot.configureForTakeoff(airport.initial_alt, runway, aircraft.model.speed.iasCruise);
         aircraft.takeoffTime = TimeKeeper.accumulatedDeltaTime;
         aircraft.setFlightPhase(FLIGHT_PHASE.TAKEOFF);
         aircraft.scoreWind('taking off');
