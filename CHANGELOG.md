@@ -1,11 +1,6 @@
-# 6.13.0 (May 1, 2019)
-### New Features
-
-
-### Bugfixes
-
-
-### Enhancements & Refactors
+# 6.12.1 (April 5, 2019)
+### Hotfixes
+- [#943](https://github.com/openscope/openscope/issues/943) - Fix random spawn calculations to ensure arrivals are available quickly
 
 
 # 6.12.1 (April 4, 2019)
