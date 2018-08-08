@@ -92,13 +92,13 @@ window.AIRPORT_LOAD_LIST = (function() { // eslint-disable-line wrap-iife
             premium: false,
             wip: false
         },
-        // {
-        //     icao: 'eddm',
-        //     level: 'hard',
-        //     name: 'Franz Josef Strauß International Airport',
-        //     premium: false,
-        //     wip: true
-        // },
+        {
+            icao: 'eddm',
+            level: 'hard',
+            name: 'Flughafen München',
+            premium: false,
+            wip: false
+        },
         // {
         //     icao: 'eddt',
         //     level: 'medium',
