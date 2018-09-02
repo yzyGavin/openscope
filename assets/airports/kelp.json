@@ -642,13 +642,13 @@
             "entryPoints": {
                 "TXSAS": ["TXSAS", "TELRE", "DLINE"]
             },
-            "body": [["UUTEP", "A120+|A140-"], "MYNRS", ["BEAHR", "A80|S210"]],
+            "body": [["UUTEP", "A120+|A140-"], "MYNRS"],
             "rwy": {
-                "4": [],
-                "8R": [],
-                "22": [],
-                "26L": [],
-                "26R": []
+                "4": [["BEAHR", "A80|S210"]],
+                "8R": [["BEAHR", "A80|S210"]],
+                "22": [["BEAHR", "A80|S210"]],
+                "26L": [["BEAHR", "A80|S210"]],
+                "26R": [["BEAHR", "A80|S210"]]
             },
             "draw": [
                 ["TXSAS", "TELRE", "DLINE", "UUTEP", "MYNRS", "BEAHR"]
@@ -660,9 +660,9 @@
             "entryPoints": {
                 "DOHHN": [["DOHHN", "A240+|S280"]]
             },
-            "body": [["HSKNS", "A130+"], ["FINAG", "A110+"], ["BECON", "A90|S210"]],
+            "body": [["HSKNS", "A130+"], ["FINAG", "A110+"]],
             "rwy": {
-                "4": []
+                "4": [["BECON", "A90|S210"]]
             },
             "draw": [
                 ["DOHHN", "HSKNS", "FINAG", "BECON"]
@@ -696,13 +696,13 @@
                 "CME": ["CME", "RIICK", "ZIPPI", "BGBND", ["BLYSS", "A130+|A140-"]],
                 "LIFFT": ["LIFFT", "CABOL", ["ZATSA", "A200+"], ["SKIIR", "A150+|A200-"]]
             },
-            "body": [["SAMMR", "A90+|A100-"], ["SARRT", "A80|S210"]],
+            "body": [["SAMMR", "A90+|A100-"]],
             "rwy": {
-                "4": [],
-                "8R": [],
-                "22": [],
-                "26L": [],
-                "26R": []
+                "4": [["SARRT", "A80|S210"]],
+                "8R": [["SARRT", "A80|S210"]],
+                "22": [["SARRT", "A80|S210"]],
+                "26L": [["SARRT", "A80|S210"]],
+                "26R": [["SARRT", "A80|S210"]]
             },
             "draw": [
                 ["LIFFT", "CABOL", "ZATSA", "SKIIR", "SAMMR", "SARRT"],
@@ -730,170 +730,7 @@
         }
     },
     "spawnPatterns": [
-        {
-            "origin": "kelp",
-            "destination": "",
-            "category": "departure",
-            "route": "KELP.ATKNN5.FLOGS",
-            "altitude": "",
-            "speed": "",
-            "method": "random",
-            "rate": 4,
-            "airlines": [
-                ["aay", 1],
-                ["ash", 6],
-                ["asq", 2],
-                ["cpz", 2],
-                ["n/fastGA", 4],
-                ["skw",  3],
-                ["swa",  9]
-            ]
-        },
-        {
-            "origin": "kelp",
-            "destination": "",
-            "category": "departure",
-            "route": "KELP.LATVE3.CME",
-            "altitude": "",
-            "speed": "",
-            "method": "random",
-            "rate": 1,
-            "airlines": [
-                ["aal", 2],
-                ["aay", 1],
-                ["ash", 6],
-                ["asq", 2],
-                ["cpz", 2],
-                ["dal", 2],
-                ["fdx", 1],
-                ["n/fastGA", 4],
-                ["skw", 3],
-                ["swa", 9]
-            ]
-        },
-        {
-            "origin": "kelp",
-            "destination": "",
-            "category": "departure",
-            "route": "KELP.NEVUE3.FST",
-            "altitude": "",
-            "speed": "",
-            "method": "random",
-            "rate": 2,
-            "airlines": [
-                ["ash", 6],
-                ["asq", 2],
-                ["cpz", 2],
-                ["n/fastGA", 4],
-                ["skw", 3],
-                ["ups", 1]
-            ]
-        },
-        {
-            "origin": "kelp",
-            "destination": "",
-            "category": "departure",
-            "route": "KELP.TDOWN3.SFL",
-            "altitude": "",
-            "speed": "",
-            "method": "random",
-            "rate": 3,
-            "airlines": [
-                ["aal", 2],
-                ["aay", 1],
-                ["ash", 6],
-                ["asq", 2],
-                ["cpz", 2],
-                ["dal", 2],
-                ["fdx", 1],
-                ["n/fastGA", 4],
-                ["skw", 3],
-                ["swa", 9],
-                ["ups", 1]
-            ]
-        },
-        {
-            "origin": "",
-            "destination": "kelp",
-            "category": "arrival",
-            "route": "TXSAS.BEAHR3.KELP",
-            "altitude": 32000,
-            "speed": 350,
-            "method": "random",
-            "rate": 3,
-            "airlines": [
-                ["aal", 2],
-                ["aay", 1],
-                ["ash", 6],
-                ["asq", 2],
-                ["cpz", 2],
-                ["dal", 2],
-                ["fdx", 1],
-                ["n/fastGA", 4],
-                ["skw", 3],
-                ["swa", 9],
-                ["ups", 1]
-            ]
-        },
-        {
-            "origin": "",
-            "destination": "kelp",
-            "category": "arrival",
-            "route": "TEEES.MOLLY4.KELP",
-            "altitude": [33000, 41000],
-            "speed": 350,
-            "method": "random",
-            "rate": 3,
-            "airlines": [
-                ["aay", 1],
-                ["ash", 6],
-                ["asq", 2],
-                ["cpz", 2],
-                ["n/fastGA", 4],
-                ["skw", 3],
-                ["swa", 9]
-            ]
-        },
-        {
-            "origin": "",
-            "destination": "kelp",
-            "category": "arrival",
-            "route": "LIFFT.SAMMR3.KELP",
-            "altitude": [20000, 33000],
-            "speed": 350,
-            "method": "random",
-            "rate": 3,
-            "airlines": [
-                ["aal", 2],
-                ["aay", 1],
-                ["ash", 6],
-                ["asq", 2],
-                ["cpz", 2],
-                ["dal", 2],
-                ["fdx", 1],
-                ["n/fastGA", 4],
-                ["skw", 3],
-                ["swa", 9]
-            ]
-        },
-        {
-            "origin": "",
-            "destination": "kelp",
-            "category": "arrival",
-            "route": "SLNNK.WAZKO1.KELP",
-            "altitude": [20000, 38000],
-            "speed": 350,
-            "method": "random",
-            "rate": 1,
-            "airlines": [
-                ["ash", 6],
-                ["asq", 2],
-                ["cpz", 2],
-                ["n/fastGA", 4],
-                ["skw", 3],
-                ["swa", 9]
-            ]
-        }
+        
     ],
     "maps": {
         "base": [
