@@ -219,13 +219,6 @@ window.AIRPORT_LOAD_LIST = (function() { // eslint-disable-line wrap-iife
             wip: false
         },
         {
-            icao: 'kaus',
-            level: 'easy',
-            name: 'Austin-Bergstrom International Airport',
-            premium: false,
-            wip: false
-        },
-        {
             icao: 'kbos',
             level: 'hard',
             name: 'Boston Logan International Airport',
@@ -260,13 +253,13 @@ window.AIRPORT_LOAD_LIST = (function() { // eslint-disable-line wrap-iife
         //     premium: false,
         //     wip: false
         // },
-        // {
-        //     icao: 'kelp',
-        //     level: 'easy',
-        //     name: 'El Paso International Airport',
-        //     premium: false,
-        //     wip: false
-        // },
+        {
+            icao: 'kelp',
+            level: 'easy',
+            name: 'El Paso International Airport',
+            premium: false,
+            wip: false
+        },
         // {
         //     icao: 'kiad',
         //     level: 'hard',
@@ -288,13 +281,13 @@ window.AIRPORT_LOAD_LIST = (function() { // eslint-disable-line wrap-iife
         //     premium: false,
         //     wip: true
         // },
-        {
-            icao: 'klas',
-            level: 'hard',
-            name: 'McCarran International Airport',
-            premium: false,
-            wip: false
-        },
+        // {
+        //     icao: 'klas',
+        //     level: 'hard',
+        //     name: 'McCarran International Airport',
+        //     premium: false,
+        //     wip: false
+        // },
         // {
         //     icao: 'klax90',
         //     level: 'medium',
@@ -316,13 +309,13 @@ window.AIRPORT_LOAD_LIST = (function() { // eslint-disable-line wrap-iife
             premium: false,
             wip: false
         },
-        {
-            icao: 'kmia',
-            level: 'hard',
-            name: 'Miami International Airport',
-            premium: false,
-            wip: false
-        },
+        // {
+        //     icao: 'kmia',
+        //     level: 'hard',
+        //     name: 'Miami International Airport',
+        //     premium: false,
+        //     wip: true
+        // },
         // {
         //     icao: 'kmsp',
         //     level: 'hard',
