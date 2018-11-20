@@ -10,6 +10,9 @@ import _mapValues from 'lodash/mapValues';
 export const CLASSNAMES = {
     ACTIVE: 'active',
     AIRCRAFT: 'aircraft',
+    AIRPORT_GUIDE: 'airport-guide',
+    AIRPORT_GUIDE_IS_HIDDEN: 'airport-guide-is-hidden',
+    AIRPORT_GUIDE_TRIGGER: 'airport-guide-trigger',
     AIRPORT_LIST: 'airport-list',
     AIRPORT_LIST_ITEM: 'airport-list-item',
     AIRPORT_LIST_ITEM_IS_ACTIVE: 'mix-airport-list-item_isActive',

@@ -27,6 +27,13 @@ export const EVENT = {
     AIRPORT_CHANGE: 'airport-change',
 
     /**
+     * @memberof EVENT
+     * @property AIRPORT_GUIDE
+     * @type {string}
+     */
+    AIRPORT_GUIDE: 'airport-guide',
+
+    /**
      * A click was registered outside of a specific `StripViewModel`
      * and the active strip, if any, should have the `active`
      * css classname removed

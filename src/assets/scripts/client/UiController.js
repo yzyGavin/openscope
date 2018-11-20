@@ -45,6 +45,7 @@ class UiController {
         this.$element = null;
         this.$airportList = null;
         this.$airportListNotes = null;
+        this.$airportGuide = null;
         this.$tutorialDialog = null;
         this.$fastForwards = null;
         this.$pauseToggle = null;
@@ -75,6 +76,7 @@ class UiController {
         this.$airportList = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_LIST);
         this.$airportListNotes = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_LIST_NOTES);
         this.$airportDialog = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_SWITCH);
+        this.$airportGuide = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE);
         this.$tutorialDialog = this.$element.find(SELECTORS.DOM_SELECTORS.TOGGLE_TUTORIAL);
         this.$fastForwards = this.$element.find(SELECTORS.DOM_SELECTORS.FAST_FORWARDS);
         this.$pauseToggle = this.$element.find(SELECTORS.DOM_SELECTORS.PAUSE_TOGGLE);
@@ -111,6 +113,7 @@ class UiController {
      * @method enable
      */
     enable() {
+        this.$airportGuide.on('click', (event) => this.onAirportGuide(event));
         this.$tutorialDialog.on('click', (event) => this._eventBus.trigger(EVENT.TOGGLE_TUTORIAL, event));
         this.$fastForwards.on('click', (event) => GameController.game_timewarp_toggle(event));
         this.$pauseToggle.on('click', (event) => GameController.game_pause_toggle(event));
@@ -535,6 +538,15 @@ class UiController {
 
     /**
      * @for UiController
+     * @method _onClickOpenAirportDialog
+     */
+    _onClickOpenAirportDialog() {
+        this.$airportGuide.addClass(SELECTORS.CLASSNAMES.OPEN);
+        
+    }
+
+    /**
+     * @for UiController
      * @method onToggleAirportList
      */
     onToggleAirportList() {
@@ -545,6 +557,20 @@ class UiController {
         }
 
         this._onClickOpenAirportDialog();
+    }
+    
+    /**
+     * @for UiController
+     * @method onAirportGuide
+     */
+    onAirportGuide() {
+        if (this.$airportGuide.hasClass(SELECTORS.CLASSNAMES.OPEN)) {
+            this._onClickCloseAirportGuide();
+
+            return;
+        }
+
+        this._onClickOpenAirportGuide();
     }
 
     /**
