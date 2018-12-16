@@ -1,4 +1,5 @@
 {
+    "airac": 1813,
     "radio": {
         "twr": "Raleigh Tower",
         "app": "Raleigh Approach",
@@ -375,14 +376,14 @@
                 ["STRMY", "HURIC", "TYI*"]
             ]
         },
-        "LWOOD2": {
-            "icao": "LWOOD2",
-            "name": "Lwood Two",
+        "LWOOD3": {
+            "icao": "LWOOD3",
+            "name": "Lwood Three",
             "rwy": {
-                "KRDU5L": ["#052"],
-                "KRDU5R": ["#052"],
-                "KRDU23L": ["#232"],
-                "KRDU23R": ["#232"]
+                "KRDU5L": ["#054"],
+                "KRDU5R": ["#054"],
+                "KRDU23L": ["#234"],
+                "KRDU23R": ["#234"]
             },
             "body": ["FOCAL", "EPOCH", "LWOOD"],
             "exitPoints": {
@@ -666,13 +667,13 @@
                 ["SWL*", "JAMIE"]
             ]
         },
-        "MALNR3": {
-            "icao": "MALNR3",
-            "name": "Malner Three",
+        "MALNR4": {
+            "icao": "MALNR4",
+            "name": "Malner Four",
             "entryPoints": {
                 "FLO": ["FLO", "HOGIL", "ETBUY"],
-                "IRQ": ["IRQ", "PYRES", ["JURDI", "A230"], ["SMIRF", "A210-"]],
-                "SAV": ["SAV", "PETTO", ["JURDI", "A230"], ["SMIRF", "A210-"]],
+                "PYRES": ["PYRES", ["JURDI", "A230"], ["SMIRF", "A210-"]],
+                "PETTO": ["PETTO", ["JURDI", "A230"], ["SMIRF", "A210-"]],
                 "TREAL": ["TREAL", ["JURDI", "A230"], ["SMIRF", "A210-"]]
             },
             "body": [["MALNR", "A110+|S250"], ["BUZZY", "A100+|A160-|S250"], "RASKL"],
@@ -809,7 +810,7 @@
             "origin": "KRDU",
             "destination": "",
             "category": "departure",
-            "route": "KRDU23L.LWOOD2.PSK",
+            "route": "KRDU23L.LWOOD3.PSK",
             "altitude": "",
             "speed": "",
             "method": "random",
@@ -1012,7 +1013,7 @@
             "origin": "",
             "destination": "KRDU",
             "category": "arrival",
-            "route": "IRQ.MALNR3.KRDU23R",
+            "route": "IRQ..PYRES.MALNR4.KRDU23R",
             "altitude": [33000, 39000],
             "speed": 320,
             "method": "random",
