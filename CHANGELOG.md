@@ -8,7 +8,7 @@
 
 
 ### Enhancements & Refactors
-- [#1260](https://github.com/openscope/openscope/issues/1260) - Update KABQ to AIRAC 1812
+- [#1260](https://github.com/openscope/openscope/issues/1260) - Update all airports to AIRAC 1813
 
 
 # 6.8.0 (December 1, 2018)
