@@ -477,7 +477,7 @@
                 "ERAVE": ["ERAVE"],
                 "FEPOT": ["FEPOT"],
                 "HQM": ["HQM"],
-                "SUMMA": ["SUMMA"],
+                "SUMMA": ["SUMMA"]
             },
             "draw": [
                 ["ATOME", "BREMM", "OZWLD"],
