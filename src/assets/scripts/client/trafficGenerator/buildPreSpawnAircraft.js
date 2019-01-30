@@ -2,7 +2,6 @@ import _isNil from 'lodash/isNil';
 import RouteModel from '../aircraft/FlightManagementSystem/RouteModel';
 // import { routeStringFormatHelper } from '../navigationLibrary/Route/routeStringFormatHelper';
 import {
-    isWithinAirspace,
     calculateDistanceToBoundary
 } from '../math/flightMath';
 import { nm } from '../utilities/unitConverters';
@@ -32,7 +31,7 @@ const _calculateSpawnPositions = (waypointModelList, spawnOffsets) => {
             const nextWaypointModel = waypointModelList[j];
             const distanceToNextWaypoint = previousWaypointModel.calculateDistanceToWaypoint(nextWaypointModel);
 
-            if (distanceToNextWaypoint > spawnOffset) {   // if point before next fix
+            if (distanceToNextWaypoint > spawnOffset) { // if point before next fix
                 // const previousFixPosition = previousWaypointModel.positionModel;
                 const heading = previousWaypointModel.calculateBearingToWaypoint(nextWaypointModel);
                 const spawnPositionModel = previousWaypointModel.positionModel.generateDynamicPositionFromBearingAndDistance(heading, spawnOffset);
@@ -101,7 +100,7 @@ const _calculateDistancesAlongRoute = (waypointModelList, airport) => {
             continue;
         }
 
-        if (isWithinAirspace(airport, waypointModel.relativePosition)) {
+        if (airport.isWithinAirspace(waypointModel.relativePosition)) {
             distanceFromClosestFixToAirspaceBoundary = nm(calculateDistanceToBoundary(airport, waypointModel.relativePosition));
             totalDistance += distanceFromClosestFixToAirspaceBoundary;
 

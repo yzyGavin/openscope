@@ -13,6 +13,7 @@
 - [#1290](https://github.com/openscope/openscope/issues/1290) - Add Pull Reminders badge to repository readme
 - [#1286](https://github.com/openscope/openscope/issues/1286) - Update EDDF to AIRAC 1901
 - [#1288](https://github.com/openscope/openscope/issues/1288) - Update event tracking arguments sent to GA
+- [#391](https://github.com/openscope/openscope/issues/391) - Add support for multiple airspace sections
 
 
 # 6.9.1 (January 4, 2019)
