@@ -1,17 +1,18 @@
 import $ from 'jquery';
+import { SELECTORS } from '../constants/selectors';
 
 /**
  * @property GUIDE_VIEW_CONTAINER
  * @final
  */
-const GUIDE_VIEW_CONTAINER = '<div class="airport-guide-data"></div>'
+const GUIDE_VIEW_CONTAINER = '<div class="airport-guide-data nice-scrollbar"></div>'
 
 /**
  * @property GUIDE_DATA_CONTAINER
  * @final
  */
 // todo: is this needed?
-const GUIDE_DATA_CONTAINER = '<pre></pre>';
+const GUIDE_DATA_CONTAINER = '<p class="airport-guide"></p>';
 
 export default class AirportGuideViewModel {
     /**
@@ -69,6 +70,8 @@ export default class AirportGuideViewModel {
         this.$data = $(GUIDE_DATA_CONTAINER);
 
         this.$element.append(this.$data);
+
+        this.update(this.icao, this.data);
     }
 
     /**
@@ -95,9 +98,9 @@ export default class AirportGuideViewModel {
      */
     update(icao, data) {
         this.icao = icao;
-        this.data = data;
+        this.data = data.replace(/\n/g, '<br />');
 
-        this.$data.text(data);
+        this.$data.html(this.data);
     }
 
     /**
@@ -107,6 +110,6 @@ export default class AirportGuideViewModel {
      * @method toggleView
      */
     toggleView() {
-        this.$element.toggleClass(SELECTORS.CLASSNAMES.AIRPORT_GUIDE_IS_HIDDEN);
+        this.$element.toggleClass(SELECTORS.CLASSNAMES.AIRPORT_GUIDE_IS_OPEN); /*AIRPORT_GUIDE_IS_*/
     }
 }

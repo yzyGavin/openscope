@@ -4,6 +4,7 @@ import AircraftCommander from './aircraft/AircraftCommander';
 import AircraftController from './aircraft/AircraftController';
 import AirlineController from './airline/AirlineController';
 import AirportController from './airport/AirportController';
+import AirportGuideViewController from './airportGuide/AirportGuideViewController';
 import CanvasController from './canvas/CanvasController';
 import AirportInfoController from './info/AirportInfoController';
 import ContentQueue from './contentQueue/ContentQueue';
@@ -55,6 +56,7 @@ export default class AppController {
         this.aircraftCommander = null;
         this.inputController = null;
         this.canvasController = null;
+        this.airportGuideController = null;
 
         return this._init()
             .setupHandlers()
@@ -122,6 +124,7 @@ export default class AppController {
         this.aircraftCommander = null;
         this.inputController = null;
         this.canvasController = null;
+        this.airportGuideController = null;
 
         return this;
     }
@@ -178,6 +181,7 @@ export default class AppController {
         this.aircraftCommander = new AircraftCommander(this.aircraftController, this.aircraftController.onRequestToChangeTransponderCode);
         this.inputController = new InputController(this.$element, this.aircraftCommander, this.aircraftController, this.scopeModel);
         this.airportInfoController = new AirportInfoController(this.$element);
+        this.airportGuideController = new AirportGuideViewController(this.$element, initialAirportData.icao);
 
         this.updateViewControls();
     }

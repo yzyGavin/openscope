@@ -1,4 +1,4 @@
-export default egnm = `
+export const egnm = `
 ### About Leeds
 Leeds Bradford Airport is an international airport in the North of England, 10km from the cities of Leeds and Bradford. It started off being called Yeadon Aerodrome, where over the years it developed to be a commercial airport. It is the highest airport within England.
 
