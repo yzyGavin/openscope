@@ -15,8 +15,17 @@ import StaticPositionModel from '../base/StaticPositionModel';
 import TimeKeeper from '../engine/TimeKeeper';
 import { isValidGpsCoordinatePair } from '../base/positionModelHelpers';
 import { degreesToRadians, parseElevation } from '../utilities/unitConverters';
-import { round } from '../math/core';
-import { vlen, vsub, vadd, vscale } from '../math/vector';
+import {
+    sin,
+    cos,
+    round
+} from '../math/core';
+import {
+    vlen,
+    vsub,
+    vadd,
+    vscale
+} from '../math/vector';
 import {
     FLIGHT_CATEGORY,
     PERFORMANCE
@@ -27,6 +36,11 @@ import { STORAGE_KEY } from '../constants/storageKeys';
 const DEFAULT_CTR_RADIUS_KM = 80;
 const DEFAULT_CTR_CEILING_FT = 10000;
 const DEFAULT_INITIAL_ALTITUDE_FT = 5000;
+const DEFAULT_RANGE_RINGS = {
+    enabled: false,
+    radius_nm: 0,
+    center: [0, 0]
+};
 
 /**
  * @class AirportModel
@@ -104,15 +118,6 @@ export default class AirportModel {
          * @default null
          */
         this.icao = null;
-
-        /**
-         * Flag for if an airport is a work in progress
-         *
-         * @property wip
-         * @type {boolean}
-         * @default null
-         */
-        this.wip = null;
 
         /**
          * AIRAC cycle from which data for the airport was taken
@@ -239,18 +244,11 @@ export default class AirportModel {
         this.initial_alt = DEFAULT_INITIAL_ALTITUDE_FT;
 
         /**
-         * @property rr_radius_nm
-         * @type {nunmber}
-         * @default 0
+         * @property rangeRings
+         * @type {object}
+         * @default DEFAULT_RANGE_RINGS
          */
-        this.rr_radius_nm = 0;
-
-        /**
-         * @property rr_center
-         * @type {nunmber}
-         * @default 0
-         */
-        this.rr_center = 0;
+        this.rangeRings = DEFAULT_RANGE_RINGS;
 
         this.parse(options);
     }
@@ -352,7 +350,6 @@ export default class AirportModel {
         this.name = _get(data, 'name', this.name);
         this.icao = _get(data, 'icao', this.icao).toLowerCase();
         this.level = _get(data, 'level', this.level);
-        this.wip = _get(data, 'wip', this.wip);
         // exit early if `position` doesn't exist in data. on app initialiazation, we loop through every airport
         // in the `airportLoadList` and instantiate a model for each but wont have the full data set until the
         // airport json file is loaded.
@@ -368,8 +365,7 @@ export default class AirportModel {
         this.ctr_radius = _get(data, 'ctr_radius', DEFAULT_CTR_RADIUS_KM);
         this.ctr_ceiling = _get(data, 'ctr_ceiling', DEFAULT_CTR_CEILING_FT);
         this.initial_alt = _get(data, 'initial_alt', DEFAULT_INITIAL_ALTITUDE_FT);
-        this.rr_radius_nm = _get(data, 'rr_radius_nm');
-        this.rr_center = _get(data, 'rr_center');
+        this.rangeRings = _get(data, 'rangeRings');
         this._runwayCollection = new RunwayCollection(data.runways, this._positionModel);
 
         this.loadTerrain();
@@ -422,7 +418,7 @@ export default class AirportModel {
                     vsub(
                         vertexPosition.relativePosition,
                         DynamicPositionModel.calculateRelativePosition(
-                            this.rr_center,
+                            this.rangeRings.center,
                             this._positionModel,
                             this.magneticNorth
                         )
@@ -552,7 +548,7 @@ export default class AirportModel {
      * @method getWind
      * @return wind {number}
      */
-    getWind = () => {
+    getWind() {
         return this.wind;
 
         // TODO: leaving this method here for when we implement changing winds. This method will allow for recalculation of the winds?
@@ -567,7 +563,22 @@ export default class AirportModel {
         // wind.speed *= extrapolate_range_clamp(-1, speed_factor, 1, 0.9, 1.05);
         //
         // return wind;
-    };
+    }
+
+    /**
+     * @for AirportModel
+     * @method getWindForRunway
+     * @param runway {runwayModel}
+     * @return {object} headwind and crosswind
+     */
+    getWindForRunway(runway) {
+        const crosswindAngle = runway.calculateCrosswindAngleForRunway(this.wind.angle);
+
+        return {
+            cross: sin(crosswindAngle) * this.wind.speed,
+            head: cos(crosswindAngle) * this.wind.speed
+        };
+    }
 
     /**
      * Set active arrival/departure runways from the runway names

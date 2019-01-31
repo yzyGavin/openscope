@@ -2,12 +2,14 @@ import $ from 'jquery';
 import _forEach from 'lodash/forEach';
 import _has from 'lodash/has';
 import EventBus from '../lib/EventBus';
+import EventTracker from '../EventTracker';
 import GameOptions from './GameOptions';
 import TimeKeeper from '../engine/TimeKeeper';
 import { round } from '../math/core';
 import { EVENT } from '../constants/eventNames';
 import { GAME_OPTION_NAMES } from '../constants/gameOptionConstants';
 import { TIME } from '../constants/globalConstants';
+import { TRACKABLE_EVENT } from '../constants/trackableEvents';
 import { SELECTORS } from '../constants/selectors';
 import { THEME } from '../constants/themes';
 
@@ -29,7 +31,8 @@ const GAME_EVENTS_POINT_VALUES = {
     ILLEGAL_APPROACH_CLEARANCE: -10,
     LOCALIZER_INTERCEPT_ABOVE_GLIDESLOPE: -10,
     NOT_CLEARED_ON_ROUTE: -25,
-    SEPARATION_LOSS: -200
+    SEPARATION_LOSS: -200,
+    NO_TAKEOFF_SEPARATION: -200
 };
 
 /**
@@ -60,7 +63,8 @@ export const GAME_EVENTS = {
     */
     LOCALIZER_INTERCEPT_ABOVE_GLIDESLOPE: 'LOCALIZER_INTERCEPT_ABOVE_GLIDESLOPE',
     NOT_CLEARED_ON_ROUTE: 'NOT_CLEARED_ON_ROUTE',
-    SEPARATION_LOSS: 'SEPARATION_LOSS'
+    SEPARATION_LOSS: 'SEPARATION_LOSS',
+    NO_TAKEOFF_SEPARATION: 'NO_TAKEOFF_SEPARATION'
 };
 
 /**
@@ -278,16 +282,19 @@ class GameController {
 
         if (TimeKeeper.simulationRate >= 5) {
             TimeKeeper.updateSimulationRate(1);
+            EventTracker.recordEvent(TRACKABLE_EVENT.OPTIONS, 'timewarp', '1');
 
             $fastForwards.removeClass(SELECTORS.CLASSNAMES.SPEED_5);
             $fastForwards.prop('title', 'Set time warp to 2');
         } else if (TimeKeeper.simulationRate === 1) {
             TimeKeeper.updateSimulationRate(2);
+            EventTracker.recordEvent(TRACKABLE_EVENT.OPTIONS, 'timewarp', '2');
 
             $fastForwards.addClass(SELECTORS.CLASSNAMES.SPEED_2);
             $fastForwards.prop('title', 'Set time warp to 5');
         } else {
             TimeKeeper.updateSimulationRate(5);
+            EventTracker.recordEvent(TRACKABLE_EVENT.OPTIONS, 'timewarp', '5');
 
             $fastForwards.removeClass(SELECTORS.CLASSNAMES.SPEED_2);
             $fastForwards.addClass(SELECTORS.CLASSNAMES.SPEED_5);
@@ -329,11 +336,13 @@ class GameController {
      */
     game_pause_toggle() {
         if (TimeKeeper.isPaused) {
+            EventTracker.recordEvent(TRACKABLE_EVENT.OPTIONS, 'pause', 'false');
             this.game_unpause();
 
             return;
         }
 
+        EventTracker.recordEvent(TRACKABLE_EVENT.OPTIONS, 'pause', 'true');
         this.game_pause();
     }
 
@@ -421,7 +430,9 @@ class GameController {
         if (this.game.score === this.game.last_score) {
             return;
         }
+
         const $scoreElement = $(SELECTORS.DOM_SELECTORS.SCORE);
+
         $scoreElement.text(round(this.game.score));
 
         // TODO: wait, what? Why not just < 0?
