@@ -1,6 +1,7 @@
+export const kdtw = `
 ### About this facility
 Detroit TRACON (D21), Detroit, Michigan, USA
-523,508 annual operations in 2016 ([FAA ATADS](https://aspm.faa.gov/opsnet/sys/Tracon.asp))
+523,508 annual operations in 2016 (<a href="https://aspm.faa.gov/opsnet/sys/Tracon.asp">FAA ATADS</a>)
 
 Located at Detroit Metro airport, the D21 TRACON provides services to all traffic in and out of the Detroit metropolitan area.
 
@@ -11,8 +12,8 @@ The D21 airspace includes an area within a 40nm radius around the Detroit airpor
 The procedures are somewhat automated, with the design of the SIDs and STARs taking some weight off the controllers. departing aircraft must be vectored to their initial fixes and arriving aircraft must be vectored to the final approach course.
 
 ### Sectors Available in openScope
-_To be completed. There is little to no information on the structure of the TRACON._
-```
+<em>To be completed. There is little to no information on the structure of the TRACON.</em>
+
 E - East Departure    (unavailable)
 W - West Departure    (unavailable)
 Y - Cruxx Satellite   (unavailable)
@@ -25,7 +26,7 @@ R - Third Feeder  (unavailable)
 B - East Arrival  (unavailable)
 A - West Arrival  (unavailable)
 V - Third Arrival (unavailable)
-```
+
 
 ### Airports of Interest
 
@@ -71,4 +72,5 @@ Windsor Airport
 Although it is located in Ontario, Canada, Windsor Airport is controlled by D21 due to its proximity to DTW. It's used primarily for general aviation as well as some commercial flights to Toronto and the Caribbean.
 
 ### Additional Resources
-[IVAO SOP](http://www.ivaous.org/fdr/SOPs/ZOB/DTW.pdf)
+<a href="http://www.ivaous.org/fdr/SOPs/ZOB/DTW.pdf">IVAO SOP</a>
+`;

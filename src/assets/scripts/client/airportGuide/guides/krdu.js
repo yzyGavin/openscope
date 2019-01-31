@@ -1,6 +1,7 @@
+export const krdu = `
 ### About this facility
 Raleigh-Durham Combined TRACON and ATCT (RDU), Morrisville, North Carolina, USA
-257,412 annual operations in 2017 ([FAA ATADS](https://aspm.faa.gov/opsnet/sys/Tracon.asp))
+257,412 annual operations in 2017 (<a href="https://aspm.faa.gov/opsnet/sys/Tracon.asp">FAA ATADS</a>)
 
 This level 9 combined TRACON/ATCT facility controls a number of airfields in Greater Raleigh. Since this is a combined facility, the TRACON and ATC Tower are co-located at Raleigh-Durham International Airport (KRDU).
 
@@ -11,7 +12,7 @@ The RDU TRACON airspace encompasses a large area around Great Raleigh extending 
 Although departing aircraft must be vectored to their initial fixes, the STARs are very automated, taking a lot of weight off the controllers. Arrivals must still be vectored to their final approach course.
 
 ### Sectors Available in openScope
-```
+
 F - Final  (default)
 N - North Departure  (unavailable)
 S - South Departure  (unavailable)
@@ -19,7 +20,7 @@ E - East Approach    (unavailable)
 W - West Approach    (unavailable)
 U - East Feeder      (unavailable)
 Y - West Feeder      (unavailable)
-```
+
 
 ### Airports of Interest
 
@@ -44,5 +45,6 @@ Triangle North Executive
 Also known as Franklin County Airport, Triangle North Executive is used primarily for private and general aviation.
 
 ### Additional Resources
-[KRDU Charts](https://skyvector.com/airport/RDU/Raleigh-Durham-International-Airport)
-[VATSIM SOP](https://vzdc.org/downloads/sops/RDU.pdf)
+<a href="https://skyvector.com/airport/RDU/Raleigh-Durham-International-Airport">KRDU Charts</a>
+<a href="https://vzdc.org/downloads/sops/RDU.pdf">VATSIM SOP</a>
+`;

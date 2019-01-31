@@ -1,6 +1,7 @@
+export const kstl = `
 ### About this facility
 St. Louis TRACON (T75), St. Charles, Missouri, USA
-298,728 annual operations in 2017 ([FAA ATADS](https://aspm.faa.gov/opsnet/sys/Tracon.asp))
+298,728 annual operations in 2017 (<a href="https://aspm.faa.gov/opsnet/sys/Tracon.asp">FAA ATADS</a>)
 
 Located 3 miles north of the Spirit of St. Louis airport (SUS), the T75 TRACON controls all traffic in and out of the Greater St. Louis area.
 
@@ -11,13 +12,13 @@ The T75 airspace encompasses a large area extending 40nm from St. Louis Lambert 
 Most of the procedures are RNAV and contain both speed and altitude restrictions, taking a lot of weight off the controllers. Arriving aircraft must still be vectored to their final approach course.
 
 ### Sectors Available in openScope
-```
+
 F - Final  (default)
 N - North Arrival  (unavailable)
 S - South Arrival  (unavailable)
 D - Departure      (unavailable)
 L - Low/Satellite  (unavailable)
-```
+
 
 ### Airports of Interest
 
@@ -63,4 +64,5 @@ MidAmerica St. Louis Airport / Scott AFB
 MidAmerica Airport is co-located on the grounds of Scott Air Force Base; The Northern side is used for civilian operations and Southern side is owned by the U.S. Air Force. It was originally built in 1997 as a reliever airport for STL.
 
 ### Additional Resources
-[VATSIM SOP](http://kcartcc.com/open/38)
+<a href="http://kcartcc.com/open/38">VATSIM SOP</a>
+`;

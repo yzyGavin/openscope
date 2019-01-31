@@ -1,3 +1,4 @@
+export const ltba = `
 ### About Istanbul Atatürk Airport (IST | LTBA)
 *Istanbul Atatürk Airport* is the main airport of Turkey. It serves as a hub for *AtlasGlobal*, *Onur Air* and, most importantly, *Turkish Airlines*, which has the biggest share at the airport and serves numerous destinations worldwide. The airport is also used for cargo operations by cargo airlines such as *Turkish Airlines Cargo*, *MNG Airlines*, *MyCargo Airlines* and *Qatar Airways Cargo*.
 The airport was originally named *Yeşilköy Airport*. In the 1980s, it was renamed *Istanbul Atatürk International Airport* in honour of *Mustafa Kemal Atatürk*, the founder and first president of the Republic of Turkey. It served more than 60 million passengers in 2015, making it the 11th-busiest airport in the world in terms of total passenger traffic and the 10th-busiest in the world in terms of international passenger traffic. As of 2017, it is Europe's 5th-busiest airport after *London Heathrow*, *Paris Charles de Gaulle*, *Frankfurt Airport* and *Amsterdam Schiphol Airport*, having fallen from third place after a decline in passengers due to security fears.
@@ -118,6 +119,7 @@ Runway 07L/25R, concrete, 2,993m (9,818ft)
 
 
 ### Additional Resources
-* [VATSIM Charts](https://trvacc.org/charts/)  
-* Additional information can be found in the [European AIS Database](https://www.ead.eurocontrol.int/fwf-eadbasic/restricted/user/aip/aip_overview.faces) (requires a free registration)  
-* Or the [Turkish AIP](http://ssd.dhmi.gov.tr/ANSLogin.aspx?mn=50) (requires a subscription)
+* <a href="https://trvacc.org/charts/">VATSIM Charts</a>  
+* Additional information can be found in the <a href="https://www.ead.eurocontrol.int/fwf-eadbasic/restricted/user/aip/aip_overview.faces">European AIS Database</a> (requires a free registration)  
+* Or the <a href="http://ssd.dhmi.gov.tr/ANSLogin.aspx?mn=50">Turkish AIP</a> (requires a subscription)
+`;

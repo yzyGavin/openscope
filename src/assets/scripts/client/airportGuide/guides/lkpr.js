@@ -1,3 +1,4 @@
+export const lkpr = `
 ### About Prague
 
 Mezinárodní letiště Václava Havla Praha (Václav Havel Airport Prague) (ICAO: LKPR, IATA: PRG) is the main and biggest airport in the Czech Republic, acting as the hub for:
@@ -19,7 +20,7 @@ The Czech civil aviation history started at Prague Kbely Airport in 1918, but as
 15,415,001 passengers in 2017
 148,283 aircraft movement in 2017
 
-[Source](https://en.wikipedia.org/wiki/V%C3%A1clav_Havel_Airport_Prague)
+<a href="https://en.wikipedia.org/wiki/V%C3%A1clav_Havel_Airport_Prague">Source</a>
 
 ### Airspace
 
@@ -33,7 +34,7 @@ The Václav Havel Airport is very specific with its runway usage. RWY04/22 is pe
 
 The monopoly in CAT III certification and winds coming mostly from the west mean RWY24 is the preferred RWY and is used for approximately 80% of all operations. RWY12 is the second most commonly used runway and RWYs 06 and 30 are used very seldom. RWYs 06/24 and 12/30 are **never** used simultaneously. 
 
-According to the [IAP](http://lis.rlp.cz/ais_data/www_main_control/frm_en_aip.htm):
+According to the <a href="http://lis.rlp.cz/ais_data/www_main_control/frm_en_aip.htm">IAP</a>:
 
 > RWY in use will be determined in following order:
 RWY 24
@@ -65,5 +66,6 @@ Prague Kbely Airport is a military airport located 11nm to the East of LKPR. It 
 
 ### Useful Additional Resources
 
-[VATSIM Charts](https://www.vacc-cz.org/en/airports/lkpr)
-[SkyVector Airport Info](https://skyvector.com/airport/LKPR/Praha-Ruzyne-Airport)
+<a href="https://www.vacc-cz.org/en/airports/lkpr">VATSIM Charts</a>
+<a href="https://www.vacc-cz.org/en/airports/lkpr">SkyVector Airport Info</a>
+`;

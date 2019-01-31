@@ -1,6 +1,7 @@
+export const kmia = `
 ### About this facility
 Miami ATCT & TRACON (MIA), Miami, Florida, USA
-1.01M annual operations (TRACON) in 2016 ([FAA ATADS](https://aspm.faa.gov/opsnet/sys/Tracon.asp))
+1.01M annual operations (TRACON) in 2016 (<a href="https://aspm.faa.gov/opsnet/sys/Tracon.asp">FAA ATADS</a>)
 
 A part of the Miami Air Traffic Control Tower Facility at Miami International Airport, the Miami TRACON works all traffic below 16,000 in the Miami and Fort Lauderdale metropolitan areas. Miami itself is very, very busy, but the satellite airports within Miami airspace should not be taken lightly either. About 277,000 annual movements involve _neither_ Miami nor Fort Lauderdale, which means even the satellite sectors can bring you down.
 
@@ -29,7 +30,7 @@ Nighttime SIDs (2300-0600):
 - SOUBY5 (east ops only)
 
 ### Sectors Available in OpenScope
-```
+
 V - Final North (default)
 ----------------------------------------
 A - Final South (unavailable)
@@ -45,7 +46,7 @@ Z - FLL Southeast (unavailable)
 L - FLL North Departure (unavailable)
 G - FLL Satellite (unavailable)
 H - TMB Arrival (unavailable)
-```
+
 
 ### Airports of Interest
 
@@ -118,5 +119,6 @@ Boca Raton
 Boca is pictured on the Miami video map, and is right along the northern perimeter depicted in openScope. However, due to the actual stratification of the airspace, altitudes 4,000 and down over the Boca Raton airport are controlled by Palm Beach TRACON, meaning Miami TRACON will be handing aircraft off to Palm Beach rather than directly providing approach and departure services at this airport.
 
 ### Additional Resources
-- [Miami Approach (Final) footage](https://www.youtube.com/watch?v=zb5nvUY6IRY)
-- [Miami Approach footage during radar outage](https://www.youtube.com/watch?v=fvD1-SBq0hg)
+- <a href="https://www.youtube.com/watch?v=zb5nvUY6IRY">Miami Approach (Final) footage</a>
+- <a href="https://www.youtube.com/watch?v=fvD1-SBq0hg">Miami Approach footage during radar outage</a>
+`;

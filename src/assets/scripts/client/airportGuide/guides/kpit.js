@@ -1,6 +1,7 @@
+export const kpit = `
 ### About this facility
 Pittsburgh Combined TRACON and ATCT (PIT), Pittsburgh, Pennsylvania, USA
-274,965 annual operations in 2017 ([FAA ATADS](https://aspm.faa.gov/opsnet/sys/Tracon.asp))
+274,965 annual operations in 2017 (<a href="https://aspm.faa.gov/opsnet/sys/Tracon.asp">FAA ATADS</a>)
 
 This level 9 combined TRACON/ATCT facility controls several airfields around "Steel City". Although the yearly operations have been decreasing for the last 15 years, the facility still handles a large amount of traffic in and out of the Pittsburgh area. 
 
@@ -12,7 +13,7 @@ Class B airspace exists with tops of 8,000 feet over the Pittsburgh metropolitan
 The airport contains only one standardized departure (PIT3), which requires aircraft to be vectored to a series of depicted fixes. Although 4 RNAV STAR's are available, controllers must give aircraft descent clearances and vectors to their final approach course.
 
 ### Sectors Available in openScope
-_To be completed. There is very little information on the structure of the TRACON._
+<em>To be completed. There is very little information on the structure of the TRACON.</em>
 
 ### Airports of Interest
 
@@ -42,6 +43,4 @@ Wheeling Ohio County
 26.8nm Southwest of KPIT
 
 Small airfield located 8 miles Northeast of Wheeling, WV used mainly for general aviation.
-
-### Additional Resources
-_Add links to relevant videos, files, etc here_
+`;

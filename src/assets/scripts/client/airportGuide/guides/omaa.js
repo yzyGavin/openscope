@@ -1,3 +1,4 @@
+export const omaa = `
 ### About Abu Dhabi International Airport
 Abu Dhabi International Airport is located in the United Arab Emirates, serving the capital of the UAE. Abu Dhabi's main operator is Etihad Airways, the UAE's national flag carrier and the second largest airline within the UAE. The airport sees a fair amount of international traffic due to its location within the world; the Middle East serves as a transfer hub for travelling between Europe and the East. Despite serving the capital of the Emirates, Abu Dhabi is the 4th busiest in the Middle East.
 
@@ -24,12 +25,12 @@ ATC should typically enforce the following speed restrictions:
 * 160kt IAS or less to 4nm from touchdown.
 
 ### Sectors Available in openScope
-```
+
 Abu Dhabi Radar Central
 Abu Dhabi Radar West
 Abu Dhabi Radar North
 Abu Dhabi Radar East
-```
+
 
 ### Videomap
 Provided with the videomap is a top down view of the airport's taxiways and runways. Each horizontal line on the extended centreline represents one (1) nautical mile, with each small 'T' representing four (4) nautical miles.
@@ -38,5 +39,6 @@ All restricted airspaces are displayed on the map, alongside key waypoints on th
 
 
 ### Additional Resources
-[Emirates vACC (VATSIM) OMAA SOP](http://uae-vacc.net/documents/OMAA_SOP.pdf)
-[UAE AIP (free registration required)](https://www.gcaa.gov.ae/en/ais/pages/aip.aspx)
+<a href="http://uae-vacc.net/documents/OMAA_SOP.pdf">Emirates vACC (VATSIM) OMAA SOP</a>
+<a href="https://www.gcaa.gov.ae/en/ais/pages/aip.aspx">UAE AIP (free registration required)</a>
+`;

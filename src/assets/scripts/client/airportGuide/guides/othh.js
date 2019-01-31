@@ -1,3 +1,4 @@
+export const othh = `
 ### About Hamad International Airport (DOH | OTHH)
 Hamad International Airport is Qatar's only international airport. It is operated by Qatar Airways and also serves as their hub.
 The Construction began in 2005 only 5km (3.1 mi) east of the older Doha International Airport which had reached its capacity limits.
@@ -46,4 +47,5 @@ Runway 16/34, Asphalt, 3750m (12303ft)
 
 
 ### Additional Resources
-[Qatar EAIP](https://www.aim.gov.qa/eaip/2018-02-01-AIRAC/html/index-en-GB.html)
+<a href="https://www.aim.gov.qa/eaip/2018-02-01-AIRAC/html/index-en-GB.html">Qatar EAIP</a>
+`;

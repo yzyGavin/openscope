@@ -1,6 +1,7 @@
+export const klas = `
 ### About this facility
 Las Vegas TRACON (L30), Las Vegas, Nevada, USA
-606,732 annual operations in 2016 ([FAA ATADS](https://aspm.faa.gov/opsnet/sys/Tracon.asp))
+606,732 annual operations in 2016 (<a href="https://aspm.faa.gov/opsnet/sys/Tracon.asp">FAA ATADS</a>)
 
 Located beside Terminal 1 in the same building as the LAS control tower, this consolidated approach control facility works all traffic in the Las Vegas metropolitan area.
 
@@ -13,7 +14,7 @@ Due to nearby Nellis Air Force Base (KLSV), just 11nm north of KLAS, the L30 TRA
 For an American airport, the procedures are fairly automated, with the design of the SIDs and STARs taking a lot of weight off the controllers. Aircraft climb and descend via the procedures, and by design the traffic flow requires minimal intervention other than running the final.
 
 ### Sectors Available in openScope
-```
+
 F - Final  (default)
 D - Dagget Departure (unavailable)
 M - Mead Departure   (unavailable)
@@ -22,7 +23,7 @@ G - Granite Arrival  (unavailable)
 L - Lake Arrival     (unavailable)
 T - Satellite        (unavailable)
 K - Keno             (unavailable)
-```
+
 
 ### Airports of Interest
 
@@ -60,4 +61,5 @@ Nellis Air Force Base
 Nellis AFB is a USAF installation with military schools and more squadrons than any other USAF base. The airfield hosts air combat exercises and close air support exercises flown in Military Operations Areas.
 
 ### Additional Resources
-[Detailed SOP](http://ivaous.org/fdr/SOPs/ZLA/L30_SOP.pdf)
+<a href="http://ivaous.org/fdr/SOPs/ZLA/L30_SOP.pdf">Detailed SOP</a>
+`;

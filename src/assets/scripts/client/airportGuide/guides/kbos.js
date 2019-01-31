@@ -1,6 +1,7 @@
+export const kbos = `
 ### About this facility
 Boston TRACON (A90), Merrimack, New Hampshire, USA
-658,524 annual operations in 2017 ([FAA ATADS](https://aspm.faa.gov/opsnet/sys/Tracon.asp))
+658,524 annual operations in 2017 (<a href="https://aspm.faa.gov/opsnet/sys/Tracon.asp">FAA ATADS</a>)
 
 Located almost 40 miles Northwest of KBOS, this consolidated approach control facility is one of six large TRACONs in the United States. It controls a large portion of the states of Massachusetts and New Hampshire.
 
@@ -11,7 +12,7 @@ Due to its sheer size, the A90 TRACON is divided into two areas; Boston and Manc
 For an American airport, the procedures are fairly automated, with the design of the SIDs and STARs taking a lot of weight off the controllers. Aircraft climb and descend via the procedures, and by design the traffic flow requires minimal intervention other than running the final. Aircraft must still be manually vectored to the final approach course.
 
 ### Sectors Available in openScope
-```
+
 F1 - Final 1    (default)
 F2 - Final 2    (unavailable)
 ID - Departure  (unavailable)
@@ -20,7 +21,7 @@ SB - Bedford    (unavailable)
 SL - Lincoln    (unavailable)
 SM - Plymouth   (unavailable)
 SR - Rockport   (unavailable)
-```
+
 
 ### Airports of Interest
 
@@ -66,5 +67,6 @@ Lawrence Municipal Airport
 Located beside Lake Cochichewick, Lawrence Airport is a small municipal airfield used for general and private aviation.
 
 ### Additional Resources
-[Charts](https://skyvector.com/airport/BOS/General-Edward-Lawrence-Logan-International-Airport)
-[VATSIM SOP](https://drive.google.com/open?id=14AdGHxsK7iCnDpZMXnl9J9dUV6kaG9aG)
+<a href="https://skyvector.com/airport/BOS/General-Edward-Lawrence-Logan-International-Airport">Charts</a>
+<a href="https://drive.google.com/open?id=14AdGHxsK7iCnDpZMXnl9J9dUV6kaG9aG">VATSIM SOP</a>
+`;

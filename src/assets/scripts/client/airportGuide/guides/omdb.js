@@ -1,3 +1,4 @@
+export const omdb = `
 ### About Dubai International Airport
 Dubai International Airport is the world's busiest airport by international passenger traffic, third busiest in the world by total passenger traffic and the world's sixth-busiest cargo airport. Dubai only has two runways, making it the world's busiest dual-runway airport. The airport is located in the United Arab Emirates in the Middle East, acting as an excellent transit point for passengers travelling from Europe to the Far East.
 
@@ -6,7 +7,7 @@ Dubai International Airport is the world's busiest airport by international pass
 2,654,494 tonnes of cargo handled in 2017
 418,220 aircraft movements in 2016
 
-Sources: [Dubai Airports](http://www.dubaiairports.ae/corporate/media-centre/factsheets-list/detail/dubai-airports), [ACI](https://en.wikipedia.org/wiki/Dubai_International_Airport#cite_note-ACI-3)
+Sources: <a href="http://www.dubaiairports.ae/corporate/media-centre/factsheets-list/detail/dubai-airports">Dubai Airports</a>, <a href="https://en.wikipedia.org/wiki/Dubai_International_Airport#cite_note-ACI-3">ACI</a>
 
 ### Dubai Air Navigation Services
 Dubai Air Navigation Services is the air navigation services provider for Dubai Airports, Al Minhad Air Base and some of the airports in the North of the UAE, based in Terminal 1 of Dubai International. dans is well-respected in the industry due to its unique air traffic management solutions. Furthermore, it is partnered with global leading aviation organisations, such as Eurocontrol.
@@ -33,7 +34,7 @@ Dubai Air Navigation Services is the air navigation services provider for Dubai 
 | "Dubai Airport"             | 126.275MHZ | ATIS for arrivals                                                        |
 
 ### About the Dubai Control Areas
-The airspace boundaries for the Dubai Control Areas are enlisted within ENR 2.1 of the United Arab Emirates AIP, available from the [General Civil Aviation Authority](https://www.gcaa.gov.ae/en/ais/Pages/default.aspx).
+The airspace boundaries for the Dubai Control Areas are enlisted within ENR 2.1 of the United Arab Emirates AIP, available from the <a href="https://www.gcaa.gov.ae/en/ais/Pages/default.aspx">General Civil Aviation Authority</a>.
 
 ### Standard Operating Procedures
 ###### Preferential Runway
@@ -84,13 +85,13 @@ For departures, the restriction is 250KT below 10,000ft.
 Dubai's instrument procedures all require aircraft to have RNAV capabilities. Furthermore, Dubai's procedures require almost little input from the controller; climb and descent instructions must be issued by the controller. Vectors are rarely used, as all STARs end on the extended centrelines, where an approach clearance (ie. ILS approach) can be issued. Shortcuts on downwind may be given, if possible.
 
 ### Sectors Available in openScope
-```
+
 Dubai Departures North
 Dubai Departures South
 Dubai Director
 Dubai Arrivals North
 Dubai Arrivals South
-```
+
 
 ### Other aerodromes within the Dubai CTA
 ##### Sharjah International Airport, OMSJ/SHJ
@@ -129,5 +130,6 @@ The videomap also contains:
 
 
 ### Additional Resources
-[Emirates vACC (VATSIM) OMDB SOP](https://vatame.org/policy/101)  
-[UAE AIP (free registration required)](https://www.gcaa.gov.ae/en/ais/pages/aip.aspx)
+<a href="https://vatame.org/policy/101">Emirates vACC (VATSIM) OMDB SOP</a>  
+<a href="https://www.gcaa.gov.ae/en/ais/pages/aip.aspx">UAE AIP (free registration required)</a>
+`;

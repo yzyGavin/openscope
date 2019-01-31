@@ -1,3 +1,4 @@
+export const lszh = `
 ### About this facility
 Skyguide Air Navigation Center, Dübendorf, Switzerland
 269,160 annual operations in 2016
@@ -11,13 +12,13 @@ The airspace encompasses a large area around Zurich up to FL190. It includes a f
 LSZH offers several departure procedures, however the DEGES and VEBIT departures are the most commonly used. Arrivals follow their STARs to either GIPOL or AMIKI, where aircraft must be vectored to their final approach course.
 
 ### Sectors Available in openScope
-```
+
 D - Zurich Departure
 W - Zurich Arrival (West)
 E - Zurich Arrival (East)
 A - Zurich Arrival (ARFA)  
 F - Zurich Final
-```
+
 
 ### Airports of Interest
 
@@ -57,5 +58,6 @@ Militärflugplatz Dübendorf (Dübendorf Military Air Base)
 Today Dübendorf AFB is the home of Lufttransportstaffel 3 and Lufttransportstaffel 4 (Air Transport squadron 3 and 4) with Eurocopter EC635, Eurocopter AS332 Super Puma, Eurocopter AS532 Cougar, De Havilland Canada Twin Otter, Beechcraft 1900 and Beechcraft Super King Air. Dübendorf is, together with Locarno AFB, the home base of the PC-7 Team and the Superpuma/cougar Displayteam. Other Swiss military aircraft such as the Pilatus PC-6 Turbo-Porter and Pilatus PC-9 are often seen in Dübendorf.
 
 ### Additional Resources
-VATSIM Charts (http://www.vacc.ch/en/airports_and_charts/)
-IVAO Operating Manual (http://ivao.ch/downloads/public/documents/LSZH_OM.pdf)
+<a href="http://www.vacc.ch/en/airports_and_charts/">VATSIM Charts</a>
+<a href="http://ivao.ch/downloads/public/documents/LSZH_OM.pdf">IVAO Operating Manual</a>
+`;

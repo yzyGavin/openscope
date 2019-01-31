@@ -1,6 +1,7 @@
+export const kmci = `
 ### About this facility
 Kansas City Combined TRACON and ATCT (KC/MCI), Kansas City, Missouri, USA
-213,727 annual operations in 2017 ([FAA ATADS](https://aspm.faa.gov/opsnet/sys/Tracon.asp))
+213,727 annual operations in 2017 (<a href="https://aspm.faa.gov/opsnet/sys/Tracon.asp">FAA ATADS</a>)
 
 This level 9 combined TRACON/ATCT facility controls 19 airfields around Kansas City, 5 of which have control towers. Since this is a combined facility, the TRACON and ATC Tower are co-located at Kansas City International Airport (KMCI).
 
@@ -13,8 +14,8 @@ Class B airspace exists with tops of 8,000 feet over the Kansas City area.
 The procedures at MCI are somewhat automated, with the design of the SIDs and STARs taking some weight off the controllers. Departing aircraft must be vectored to specified routes depicted on charts and controllers must issue arriving aircraft descent clearances and vectors to their final approach course.
 
 ### Sectors Available in openScope
-_To be completed. There is very little information on the structure of the TRACON._
-```
+<em>To be completed. There is very little information on the structure of the TRACON._
+
 F - Final  (default)
 A - ?
 B - ?
@@ -24,7 +25,7 @@ W - West Approach (unavailable)
 N - ?
 S - ?
 J - ?
-```
+
 
 ### Airports of Interest
 
@@ -64,4 +65,5 @@ Rosecrans Memorial
 Surrounded by an oxbow lake, Rosecrans Memorial Airport is a joint civil-military airport located 3 miles northwest of St. Joseph. It is primarily used by the Missouri Air National Guard as well as some general aviation.
 
 ### Additional Resources
-[VATSIM SOP](http://kcartcc.com/open/7)
+<a href="http://kcartcc.com/open/7">VATSIM SOP</a>
+`;
