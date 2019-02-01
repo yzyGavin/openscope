@@ -1,6 +1,5 @@
 import $ from 'jquery';
 import _has from 'lodash/has';
-import AirportController from '../airport/AirportController';
 import EventBus from '../lib/EventBus';
 import AirportGuideViewModel from './AirportGuideViewModel';
 import { EVENT } from '../constants/eventNames';
