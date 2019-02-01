@@ -412,15 +412,6 @@ class UiController {
 
     /**
      * @for UiController
-     * @method _onClickOpenAirportDialog
-     */
-    _onClickOpenAirportDialog() {
-        this.$airportGuide.addClass(SELECTORS.CLASSNAMES.OPEN);
-        
-    }
-
-    /**
-     * @for UiController
      * @method onToggleAirportList
      */
     onToggleAirportList() {
