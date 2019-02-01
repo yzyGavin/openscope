@@ -94,7 +94,7 @@ export default class AirportGuideViewController {
 
     /**
      * Enable handlers
-     * 
+     *
      * @for airportGuideViewController
      * @method enable
      * @chainable
@@ -102,7 +102,7 @@ export default class AirportGuideViewController {
     enable() {
         this.$airportGuideTrigger.on('click', this._onElementToggleHandler);
         this._eventBus.on(EVENT.AIRPORT_CHANGE, this._onAirportChangeHandler);
-        
+
         this.airportGuideViewModel = new AirportGuideViewModel(this.icao, this.getAirportGuide(this.icao));
 
         this.$element.append(this.airportGuideViewModel.$element);
