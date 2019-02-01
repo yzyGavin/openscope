@@ -71,7 +71,8 @@ export default class AirportGuideViewController {
          */
         this._eventBus = null;
 
-        return this._init().enable();
+        return this.init()
+            .enable();
     }
 
     /**
@@ -80,9 +81,10 @@ export default class AirportGuideViewController {
      * Shuld only be run once on instantiation
      * 
      * @for airportGuideViewController
-     * @method _init
+     * @method init
+     * @chainable
      */
-    _init() {
+    init() {
         this._eventBus = EventBus;
         this._onAirportChangeHandler = this._onAirportChange.bind(this);
         this._onElementToggleHandler = this._onAirportGuideToggle.bind(this);
@@ -100,6 +102,7 @@ export default class AirportGuideViewController {
     enable() {
         this.$airportGuideTrigger.on('click', this._onElementToggleHandler);
         this._eventBus.on(EVENT.AIRPORT_CHANGE, this._onAirportChangeHandler);
+        
         this.airportGuideViewModel = new AirportGuideViewModel(this.icao, this.getAirportGuide(this.icao));
 
         this.$element.append(this.airportGuideViewModel.$element);
