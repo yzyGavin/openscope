@@ -103,6 +103,6 @@ options.TASKS = {
         SCRIPTS: 'watch:scripts',
         STYLES: 'watch:styles'
     }
-}
+};
 
 module.exports = options;

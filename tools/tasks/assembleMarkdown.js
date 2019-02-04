@@ -6,9 +6,6 @@ const mkdirp = require('mkdirp');
 const showdown = require('showdown');
 const options = require('../options');
 
-const sourceDir = options.DIR.ASSETS_GUIDES;
-const destDir = options.DIR.DIST_GUIDES;
-
 /**
  * Encapsulates the `makeHtml` method from `showdownjs`.
  *
@@ -25,20 +22,21 @@ function _parseMarkdown(markdown) {
 /**
  * Grabs the markdown files and returns the data and icao in an object
  *
- * @method readMarkdownFiles
+ * @method _generateAirportGuideDict
  * @returns {Object} filenames and data
  */
-function readMarkdownFiles() {
+function _generateAirportGuideDict() {
     const input = {};
 
-    fs.readdirSync(sourceDir).forEach(filename => {
-        const filePath = path.join(sourceDir, filename);
-        const fileData = fs.readFileSync(filePath, { encoding: 'utf8' });
+    fs.readdirSync(options.DIR.ASSETS_GUIDES).forEach((filename) => {
+        const pathToGuideFile = path.join(options.DIR.ASSETS_GUIDES, filename);
+        const fileData = fs.readFileSync(pathToGuideFile, { encoding: 'utf8' });
         const icao = filename.split('.')[0];
 
         // If the file is empty, there is no guide, so we do not need to write it
         if (!fileData) {
-            fancyLog(colors.yellow(`skipping airport: ${icao}, no guide found in file`));
+            fancyLog(colors.yellow(`--- --- skipping airport: ${icao}, no guide found in file`));
+
             return;
         }
 
@@ -56,8 +54,7 @@ function readMarkdownFiles() {
  * @returns {Object} the object, with markdown parsed to HTML.
  */
 function parseFiles(input) {
-    // adapted from stackoverflow:
-    // https://stackoverflow.com/questions/921789/how-to-loop-through-a-plain-javascript-object-with-the-objects-as-members
+    // FIXME: replace with `.reduce()`
     for (const key in input) {
         // skip if key is from prototype
         if (!input.hasOwnProperty(key)) continue;
@@ -77,22 +74,25 @@ function parseFiles(input) {
  * @param {Object} input
  */
 function _writeFileOutput(input) {
-    const filePathToWrite = path.join(destDir, 'guides.json');
+    const filePathToWrite = path.join(options.DIR.DIST_GUIDES, 'guides.json');
     const jsonOutput = JSON.stringify(input);
 
-    mkdirp(destDir, err => {
+    mkdirp(options.DIR.DIST_GUIDES, (err) => {
         if (err) {
-            fancyLog(colors.red(`Failed to write guidefile guides.json`));
-            Promise.reject(err);
+            fancyLog(colors.red(`--- Failed to create ${options.DIR.DIST_GUIDES}`));
+
+            return Promise.reject(err);
         }
-        
-        fs.writeFile(filePathToWrite, jsonOutput, err => {
-            if (err) {
-                fancyLog(colors.red(`Failed to write guidefile guides.json`));
-                Promise.reject(err);
+
+        fs.writeFile(filePathToWrite, jsonOutput, (writeFileError) => {
+            if (writeFileError) {
+                fancyLog(colors.red('--- Failed to write guidefile guides.json'));
+
+                return Promise.reject(writeFileError);
             }
+
+            fancyLog(colors.green('--- sucessfully created guides.json'));
         });
-        fancyLog(colors.green(`--- Wrote guides to file guides.json`));
     });
 }
 
@@ -103,13 +103,11 @@ function _writeFileOutput(input) {
  * @returns {Promise.resolve} promise resolution
  */
 function assembleMarkdown() {
-    let markdown = readMarkdownFiles();
+    fancyLog(colors.green('--- Assembling guides.json from airportGuide markdown files'));
 
+    let markdown = _generateAirportGuideDict();
     markdown = parseFiles(markdown);
     _writeFileOutput(markdown);
-
-    fancyLog(colors.green('--- Writing airport guide markdown to output'));
-    
 
     return Promise.resolve();
 }

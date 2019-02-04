@@ -25,6 +25,7 @@ module.exports = function(gulp, config) {
         return merge(fonts, images);
     };
 
+    // FIXME: move this task to live on it's own
     const copyGuides = () => {
         return markdown();
     }
