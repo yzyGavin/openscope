@@ -4,10 +4,8 @@ import EventBus from '../lib/EventBus';
 import AirportGuideViewModel from './AirportGuideViewModel';
 import { EVENT } from '../constants/eventNames';
 import { SELECTORS } from '../constants/selectors';
-import { AIRPORT_GUIDE_DATA } from './guides/index';
 
 /**
- * 
  *
  * @class AirportGuideViewController
  */
@@ -15,9 +13,10 @@ export default class AirportGuideViewController {
     /**
      * @constructor
      * @param {JQuery|HTMLElement} $element
+     * @param {Object} airportGuideData
      * @param {String} initialIcao
      */
-    constructor($element, initialIcao) {
+    constructor($element, airportGuideData, initialIcao) {
         /**
          * Root DOM element
          *
@@ -27,12 +26,12 @@ export default class AirportGuideViewController {
         this.$element = $element;
 
         /**
-         * The ICAO of the current airport.
+         * The ICAO of the initial airport.
          *
-         * @property airportIcao
+         * @property initialIcao
          * @type {string}
          */
-        this.icao = initialIcao.toLowerCase();
+        this.initialIcao = initialIcao.toLowerCase();
 
         /**
          * Root list view element
@@ -41,7 +40,6 @@ export default class AirportGuideViewController {
          * @type {AirportGuideViewModel}
          */
         this.airportGuideViewModel = null;
-        //this.$airportGuideView = $(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE);
 
         /**
          * Trigger that toggles visibility of the `$airpertGuideView`
@@ -59,7 +57,7 @@ export default class AirportGuideViewController {
          * @type {object<string, string>}
          * @private
          */
-        this._guideData = AIRPORT_GUIDE_DATA;
+        this._guideData = airportGuideData;
 
         /**
          * Local reference to the EventBus
@@ -102,7 +100,7 @@ export default class AirportGuideViewController {
         this.$airportGuideTrigger.on('click', this._onElementToggleHandler);
         this._eventBus.on(EVENT.AIRPORT_CHANGE, this._onAirportChangeHandler);
 
-        this.airportGuideViewModel = new AirportGuideViewModel(this.icao, this.getAirportGuide(this.icao));
+        this.airportGuideViewModel = new AirportGuideViewModel(this.initialIcao, this.getAirportGuide(this.initialIcao));
 
         this.$element.append(this.airportGuideViewModel.$element);
 
@@ -150,12 +148,10 @@ export default class AirportGuideViewController {
         let nextData;
 
         if (!guideExists) {
-            nextData = this._guideData['not_found'](nextIcao);
-        } else {
-            nextData = this._guideData[nextIcao];
+            nextIcao = 'not_found';
         }
 
-        return nextData;
+        return this._guideData[nextIcao];
     }
 
     /**

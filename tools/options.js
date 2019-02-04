@@ -36,6 +36,7 @@ options.DIR = {
     ASSETS_AIRCRAFT: path.join(buildAssetsDir, 'aircraft'),
     ASSETS_AIRLINES: path.join(buildAssetsDir, 'airlines'),
     ASSETS_AIRPORTS: path.join(buildAssetsDir, 'airports'),
+    ASSETS_GUIDES: path.join(buildAssetsDir, 'guides'),
     BUILD_FONTS: path.join(buildAssetsDir, 'fonts'),
     BUILD_IMAGES: path.join(buildAssetsDir, 'images'),
 
@@ -44,6 +45,7 @@ options.DIR = {
     DIST_AIRCRAFT: path.join(distAssets, 'aircraft'),
     DIST_AIRLINES: path.join(distAssets, 'airlines'),
     DIST_AIRPORTS: path.join(distAssets, 'airports'),
+    DIST_GUIDES: path.join(distAssets, 'guides'),
     DIST_FONT: path.join(distAssets, 'fonts'),
     DIST_IMAGES: path.join(distAssets, 'images'),
     DIST_SCRIPTS_CLIENT: path.join(distAssets, 'scripts/client'),
@@ -87,6 +89,7 @@ options.TASKS = {
     COPY: {
         AIRPORTS: 'copy:airports',
         STATIC: 'copy:static',
+        GUIDES: 'copy:guides',
         DIST: 'copy:dist'
     },
     DEFAULT: 'default',
