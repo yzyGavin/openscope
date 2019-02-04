@@ -100,9 +100,7 @@ export default class AirportGuideViewModel {
         this.icao = icao;
         this.data = data;
 
-        const parsedData = this._parseMarkdown(this.data)
-
-        this.$data.html(parsedData);
+        this.$data.html(data);
     }
 
     /**
@@ -112,21 +110,6 @@ export default class AirportGuideViewModel {
      * @method toggleView
      */
     toggleView() {
-        this.$element.toggleClass(SELECTORS.CLASSNAMES.AIRPORT_GUIDE_IS_OPEN); /*AIRPORT_GUIDE_IS_*/
-    }
-
-    /**
-     * Encapsulates the `makeHtml` method from `showdownjs`.
-     *
-     * @for AirportGuideViewModel
-     * @method _parseMarkdown
-     * @param {String} markdown
-     * @returns {String} parsed HTML
-     * @private
-     */
-    _parseMarkdown(markdown) {
-        const converter = new showdown.Converter({ tables: true, simpleLineBreaks: true });
-
-        return converter.makeHtml(markdown);
+        this.$element.toggleClass(SELECTORS.CLASSNAMES.AIRPORT_GUIDE_IS_OPEN);
     }
 }
