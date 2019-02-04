@@ -49,8 +49,11 @@ function readMarkdownFiles() {
 }
 
 /**
+ * Iterates through each airport, converting the markdown to HTML.
+ * Returns a similar object, with ICAO keys and HTML values.
  *
- * @param {Object} input 
+ * @param {Object} input
+ * @returns {Object} the object, with markdown parsed to HTML.
  */
 function parseFiles(input) {
     // adapted from stackoverflow:
@@ -65,6 +68,14 @@ function parseFiles(input) {
     return input;
 }
 
+/**
+ * Asynchronously creates the `public/assets/guides` directory, if needed,
+ * then writes the airport guides to a single file, `guides.json`.
+ *
+ * Will throw a `Promise.reject()`, should directory creation or file writing fail.
+ *
+ * @param {Object} input
+ */
 function _writeFileOutput(input) {
     const filePathToWrite = path.join(destDir, 'guides.json');
     const jsonOutput = JSON.stringify(input);
@@ -88,6 +99,8 @@ function _writeFileOutput(input) {
 /**
  * Assembles the airport guide markdown into readable JSON, which
  * is itself a string of HTML.
+ *
+ * @returns {Promise.resolve} promise resolution
  */
 function assembleMarkdown() {
     let markdown = readMarkdownFiles();
