@@ -55,7 +55,9 @@ function _generateAirportGuideDict() {
  */
 function parseFiles(input) {
     // FIXME: replace with `.reduce()`
+    console.log('\n', input);
     for (const key in input) {
+        console.log('+++ ', key);
         // skip if key is from prototype
         if (!input.hasOwnProperty(key)) continue;
 
