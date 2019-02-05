@@ -74,9 +74,9 @@ export default class AirportGuideViewController {
 
     /**
      * Initialize the instance
-     * 
+     *
      * Shuld only be run once on instantiation
-     * 
+     *
      * @for airportGuideViewController
      * @method init
      * @chainable
@@ -125,12 +125,12 @@ export default class AirportGuideViewController {
      * @for AirportGuideViewController
      * @method _onAirportChange
      * @param {object} nextAirportJson
-     * @private 
+     * @private
      */
     _onAirportChange(nextAirportJson) {
         const nextIcao = nextAirportJson.icao.toLowerCase();
         const nextData = this.getAirportGuide(nextIcao);
-    
+
         this.airportGuideViewModel.update(nextIcao, nextData);
     }
 
@@ -145,7 +145,6 @@ export default class AirportGuideViewController {
      */
     getAirportGuide(nextIcao) {
         const guideExists = this.hasAirportGuide(nextIcao);
-        let nextData;
 
         if (!guideExists) {
             nextIcao = 'not_found';

@@ -1,19 +1,18 @@
 import $ from 'jquery';
-import showdown from 'showdown';
 import { SELECTORS } from '../constants/selectors';
 
 /**
  * @property GUIDE_VIEW_CONTAINER
  * @final
  */
-const GUIDE_VIEW_CONTAINER = '<div class="airport-guide-data nice-scrollbar"></div>'
+const GUIDE_VIEW_CONTAINER = '<div class="airport-guide-data nice-scrollbar"></div>';
 
 /**
  * @property GUIDE_DATA_CONTAINER
  * @final
  */
 // todo: is this needed?
-const GUIDE_DATA_CONTAINER = '<p class="airport-guide"></p>';
+const GUIDE_DATA_CONTAINER = '<div class="airport-guide"></div>';
 
 export default class AirportGuideViewModel {
     /**
@@ -93,8 +92,8 @@ export default class AirportGuideViewModel {
      *
      * @for AirportGuideViewModel
      * @method update
-     * @param {String} icao 
-     * @param {String} data 
+     * @param {String} icao
+     * @param {String} data
      */
     update(icao, data) {
         this.icao = icao;

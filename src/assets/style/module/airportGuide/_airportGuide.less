@@ -1,27 +1,27 @@
 .airport-guide-data {
-    width: fit-content;
+    background-color: @dark-06;
+    border: 6px solid @blue-medium;
+    border-radius: 8px;
+    bottom: 0;
+    box-shadow: 0 0 50px -10px rgba(0,0,0,.3);
+    box-sizing: border-box;
+    color: @light-gray;
+    font-size: 12px;
     height: auto;
+    left: 0;
     // LESS itself tries to evaluate calc(), using ~"" here to prevent that
     max-height: ~"calc(85% - 2.3em - 20px)";
     max-width: 80%;
     margin: auto;
     padding: 0px 10px 0px 10px;
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
     right: 0;
-    background-color: @dark-06;
-    color: @light-gray;
-    font-size: 12px;
-    overflow-y: auto;
-    border: 6px solid @blue-medium;
-    border-radius: 8px;
-    box-sizing: border-box;
-    box-shadow: 0 0 50px -10px rgba(0,0,0,.3);
-    opacity: 0;
+    top: 0;
     transition: opacity 0.5s ease;
+    opacity: 0;
+    overflow-y: auto;
     pointer-events: none;
+    width: fit-content;
     z-index: 200;
 }
 
