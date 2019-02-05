@@ -5,6 +5,7 @@ const OPTIONS = require('./tools/options');
 
 const buildMarkup = require('./tools/tasks/buildMarkup');
 const jsonAssembler = require('./tools/tasks/jsonAssembler');
+const markdownAssembler = require('./tools/tasks/markdownAssembler');
 
 require('./tools/tasks/scriptTasks')(gulp, OPTIONS);
 require('./tools/tasks/styleTasks')(gulp, OPTIONS);
@@ -13,6 +14,7 @@ require('./tools/tasks/utilityTasks')(gulp, OPTIONS);
 
 gulp.task(OPTIONS.TASKS.MARKUP, gulp.series(buildMarkup));
 gulp.task(OPTIONS.TASKS.JSON.ASSEMBLE, gulp.series(jsonAssembler));
+gulp.task(OPTIONS.TASKS.MARKDOWN.ASSEMBLE, gulp.series(markdownAssembler));
 
 const buildAndMarkup = gulp.parallel(
     OPTIONS.TASKS.BUILD.SCRIPTS,
@@ -25,6 +27,7 @@ gulp.task(OPTIONS.TASKS.BUILD.DEFAULT, gulp.series(
     OPTIONS.TASKS.CLEAN.DEFAULT,
     buildAndMarkup,
     jsonAssembler,
+    markdownAssembler,
     OPTIONS.TASKS.COPY.DIST
 ));
 

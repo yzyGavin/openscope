@@ -89,10 +89,12 @@ options.TASKS = {
     COPY: {
         AIRPORTS: 'copy:airports',
         STATIC: 'copy:static',
-        GUIDES: 'copy:guides',
         DIST: 'copy:dist'
     },
     DEFAULT: 'default',
+    MARKDOWN: {
+        ASSEMBLE: 'markdown:assemble'
+    },
     MARKUP: 'markup',
     JSON: {
         ASSEMBLE: 'json:assemble',
