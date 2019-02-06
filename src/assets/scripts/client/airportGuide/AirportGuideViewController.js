@@ -7,14 +7,15 @@ import { SELECTORS } from '../constants/selectors';
 
 /**
  *
+ *
  * @class AirportGuideViewController
  */
 export default class AirportGuideViewController {
     /**
      * @constructor
      * @param {JQuery|HTMLElement} $element
-     * @param {Object} airportGuideData
-     * @param {String} initialIcao
+     * @param {object} airportGuideData  dictionary of airport icao and html string
+     * @param {string} initialIcao
      */
     constructor($element, airportGuideData, initialIcao) {
         /**
@@ -41,8 +42,9 @@ export default class AirportGuideViewController {
          */
         this.airportGuideViewModel = null;
 
+        // FIXME: move this click interaction to UiController
         /**
-         * Trigger that toggles visibility of the `$airpertGuideView`
+         * Trigger that toggles visibility of the `$airportGuideView`
          *
          * @property $airportGuideTrigger
          * @type {JQuery|HTMLElement}
@@ -189,8 +191,8 @@ export default class AirportGuideViewController {
      *
      * @for AirportGuideViewController
      * @method getAirportGuide
-     * @param {String} nextIcao
-     * @returns {String} - the requested guide
+     * @param {string} nextIcao
+     * @returns {string} - the requested guide
      */
     getAirportGuide(nextIcao) {
         const guideExists = this.hasAirportGuide(nextIcao);
@@ -208,7 +210,7 @@ export default class AirportGuideViewController {
      *
      * @for AirportGuideViewController
      * @method hasAirportGuide
-     * @param {String} icao
+     * @param {string} icao
      * @returns {Boolean} whether a guide was found
      */
     hasAirportGuide(icao) {

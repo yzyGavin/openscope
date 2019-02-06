@@ -163,7 +163,14 @@ export default class App {
      * @param aircraftTypeDefinitionList {array}  List of all Aircraft definitions
      * @param airportGuides {object}          Airport guide JSON
      */
-    setupChildren(airportLoadList, initialAirportIcao, initialAirportData, airlineList, aircraftTypeDefinitionList, airportGuides) {
+    setupChildren(
+        airportLoadList,
+        initialAirportIcao,
+        initialAirportData,
+        airlineList,
+        aircraftTypeDefinitionList,
+        airportGuides
+    ) {
         this._appController.setupChildren(
             airportLoadList,
             initialAirportIcao,

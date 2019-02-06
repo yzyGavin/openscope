@@ -144,7 +144,14 @@ export default class AppController {
      * @param aircraftTypeDefinitionList {array<object>}
      * @param airportGuideData {object}
      */
-    setupChildren(airportLoadList, initialAirportIcao, initialAirportData, airlineList, aircraftTypeDefinitionList, airportGuideData) {
+    setupChildren(
+        airportLoadList,
+        initialAirportIcao,
+        initialAirportData,
+        airlineList,
+        aircraftTypeDefinitionList,
+        airportGuideData
+    ) {
         EventTracker.recordEvent(TRACKABLE_EVENT.AIRPORTS, 'initial-load', initialAirportIcao);
 
         this.$canvasesElement = this.$element.find(SELECTORS.DOM_SELECTORS.CANVASES);

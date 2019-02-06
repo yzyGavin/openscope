@@ -5,14 +5,15 @@ import { SELECTORS } from '../constants/selectors';
  * @property GUIDE_VIEW_CONTAINER
  * @final
  */
-const GUIDE_VIEW_CONTAINER = '<div class="airport-guide-data nice-scrollbar"></div>';
+// FIXME: move to _airportGuide.hbs file
+const GUIDE_VIEW_CONTAINER = '<div class="airportGuide-container nice-scrollbar"></div>';
 
 /**
  * @property GUIDE_DATA_CONTAINER
  * @final
  */
-// todo: is this needed?
-const GUIDE_DATA_CONTAINER = '<div class="airport-guide"></div>';
+// FIXME: move to _airportGuide.hbs file
+const GUIDE_DATA_CONTAINER = '<div class="airportGuide-bd"></div>';
 
 export default class AirportGuideViewModel {
     /**
