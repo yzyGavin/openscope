@@ -33,8 +33,14 @@ function _generateHtmlFromMarkdown(markdown) {
 function _generateAirportGuideDict() {
     const airportGuideDict = {};
 
-    fs.readdirSync(options.DIR.ASSETS_GUIDES).forEach((filename) => {
-        const pathToGuideFile = path.join(options.DIR.ASSETS_GUIDES, filename);
+    fs.readdirSync(options.DIR.SRC_GUIDES).forEach((filename) => {
+        if (filename.includes('airport-guide-directory')) {
+            fancyLog(colors.yellow('--- skipping airport-guide-directory, its not an airport file'));
+
+            return;
+        }
+
+        const pathToGuideFile = path.join(options.DIR.SRC_GUIDES, filename);
         const fileData = fs.readFileSync(pathToGuideFile, { encoding: 'utf8' });
         const icao = filename.split('.')[0];
 

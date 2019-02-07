@@ -1,4 +1,4 @@
-### No airport guide for this airport
+# No airport guide for this airport
 
 Unfortunately, openScope does not have an airport guide available for the requested airport.
 

@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import _has from 'lodash/has';
 import EventBus from '../lib/EventBus';
 import AirportGuideViewModel from './AirportGuideViewModel';
@@ -83,6 +82,7 @@ export default class AirportGuideViewController {
      *
      * @for airportGuideViewController
      * @method init
+     * @private
      * @chainable
      */
     _init() {
@@ -92,7 +92,9 @@ export default class AirportGuideViewController {
     }
 
     /**
+     * Create child elements
      *
+     * Should be run only once on instantiation
      *
      * @for AirportGuideViewController
      * @method _createChildren
@@ -101,12 +103,9 @@ export default class AirportGuideViewController {
      * @private
      */
     _createChildren($element) {
+        const activeAirportGuide = this.getAirportGuide(this.initialIcao);
         this.$airportGuideTrigger = $element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_TRIGGER);
-        this.airportGuideViewModel = new AirportGuideViewModel(
-            $element,
-            this.initialIcao,
-            this.getAirportGuide(this.initialIcao)
-        );
+        this.airportGuideViewModel = new AirportGuideViewModel($element, activeAirportGuide);
 
         return this;
     }
@@ -137,7 +136,6 @@ export default class AirportGuideViewController {
     enable() {
         this._eventBus.on(EVENT.AIRPORT_CHANGE, this._onAirportChangeHandler);
         this.$airportGuideTrigger.on('click', this._onElementToggleHandler);
-        // this.$element.append(this.airportGuideViewModel.$element);
 
         return this;
     }
@@ -200,7 +198,7 @@ export default class AirportGuideViewController {
         const nextIcao = nextAirportJson.icao.toLowerCase();
         const airportGuideMarkupString = this.getAirportGuide(nextIcao);
 
-        this.airportGuideViewModel.update(nextIcao, airportGuideMarkupString);
+        this.airportGuideViewModel.update(airportGuideMarkupString);
     }
 
     /**

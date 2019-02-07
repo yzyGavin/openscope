@@ -6,15 +6,14 @@ import { SELECTORS } from '../constants/selectors';
  * @class AirportGuideViewModel
  */
 // FIXME: rename class to `AirportGuideView'
- export default class AirportGuideViewModel {
+export default class AirportGuideViewModel {
     /**
      * @constructor
      * @param {JQuery Element} $element
-     * @param {string} icao
      * @param {string} data
      */
     // FIXME: `icao` might not be needed in this class
-    constructor($element, icao, data) {
+    constructor($element, data) {
         /**
          * The HTML view container of the data (formatted)
          *
@@ -26,18 +25,10 @@ import { SELECTORS } from '../constants/selectors';
         /**
          * Local instance of the airport guide data
          *
-         * @property _airportGuideDictionary
+         * @property _airportGuide
          * @type {string}
          */
-        this._airportGuideDictionary = data;
-
-        /**
-         * The icao airport code of the airport whose data we have
-         *
-         * @property icao
-         * @type {string}
-         */
-        this.icao = icao;
+        this._airportGuide = data;
 
         /**
          * The HTML containing the data itself
@@ -58,13 +49,17 @@ import { SELECTORS } from '../constants/selectors';
      *
      * @for AirportGuideViewModel
      * @method _init
+     * @private
+     * @chainable
      */
     _init() {
         return this;
     }
 
     /**
+     * Create child elements
      *
+     * Should be run only once on instantiation
      *
      * @for AirportGuideViewModel
      * @method _createChildren
@@ -80,7 +75,7 @@ import { SELECTORS } from '../constants/selectors';
     }
 
     /**
-     *
+     * Enable the instance
      *
      * @for AirportGuideViewModel
      * @method enable
@@ -88,7 +83,7 @@ import { SELECTORS } from '../constants/selectors';
      * @chainable
      */
     enable() {
-        this.update(this.icao, this._airportGuideDictionary);
+        this.update(this._airportGuide);
 
         return this;
     }
@@ -100,8 +95,7 @@ import { SELECTORS } from '../constants/selectors';
      * @method disable
      */
     disable() {
-        this.icao = null;
-        this._airportGuideDictionary = null;
+        this._airportGuide = null;
         this.$element = null;
         this.$airportGuideView = null;
     }
@@ -112,15 +106,13 @@ import { SELECTORS } from '../constants/selectors';
      *
      * @for AirportGuideViewModel
      * @method update
-     * @param {String} icao
      * @param {String} data
      */
-    update(icao, data) {
-        this.icao = icao;
-        this._airportGuideDictionary = data;
+    update(data) {
+        this._airportGuide = data;
 
         // FIXME: sanitize this
-        this.$airportGuideView.html(this._airportGuideDictionary);
+        this.$airportGuideView.html(this._airportGuide);
     }
 
     /**

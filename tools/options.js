@@ -3,6 +3,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '../');
 const src = './src';
 const srcAssetsDir = path.join(src, 'assets');
+const srcDocumentationDir = path.join(ROOT, 'documentation/airport-guides');
 const srcMarkup = path.join(src, 'templates');
 const scrScriptsFonts = path.join(srcAssetsDir, 'fonts');
 const srcScriptsDir = path.join(srcAssetsDir, 'scripts');
@@ -23,6 +24,7 @@ options.DIR = {
     SRC: src,
     SRC_ASSETS: srcAssetsDir,
     SRC_FONTS: scrScriptsFonts,
+    SRC_GUIDES: srcDocumentationDir,
     SRC_MARKUP: srcMarkup,
     SRC_SCRIPTS: srcScriptsDir,
 
@@ -36,7 +38,6 @@ options.DIR = {
     ASSETS_AIRCRAFT: path.join(buildAssetsDir, 'aircraft'),
     ASSETS_AIRLINES: path.join(buildAssetsDir, 'airlines'),
     ASSETS_AIRPORTS: path.join(buildAssetsDir, 'airports'),
-    ASSETS_GUIDES: path.join(buildAssetsDir, 'guides'),
     BUILD_FONTS: path.join(buildAssetsDir, 'fonts'),
     BUILD_IMAGES: path.join(buildAssetsDir, 'images'),
 
