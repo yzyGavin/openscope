@@ -43,7 +43,7 @@ export default class AirportGuideView {
          */
         this.$airportGuideView = null;
 
-        return this._init()
+        return this.init()
             ._createChildren($element)
             .enable();
     }
@@ -54,11 +54,10 @@ export default class AirportGuideView {
      * Should be called once on instantiation
      *
      * @for AirportGuideView
-     * @method _init
-     * @private
+     * @method init
      * @chainable
      */
-    _init() {
+    init() {
         return this;
     }
 
