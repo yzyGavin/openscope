@@ -1,35 +1,35 @@
-import $ from 'jquery';
 import { SELECTORS } from '../constants/selectors';
 
 /**
- * @property GUIDE_VIEW_CONTAINER
- * @final
+ *
+ *
+ * @class AirportGuideViewModel
  */
-// FIXME: move to _airportGuide.hbs file
-const GUIDE_VIEW_CONTAINER = '<div class="airportGuide-container nice-scrollbar"></div>';
-
-/**
- * @property GUIDE_DATA_CONTAINER
- * @final
- */
-// FIXME: move to _airportGuide.hbs file
-const GUIDE_DATA_CONTAINER = '<div class="airportGuide-bd"></div>';
-
-export default class AirportGuideViewModel {
+// FIXME: rename class to `AirportGuideView'
+ export default class AirportGuideViewModel {
     /**
-     *
      * @constructor
+     * @param {JQuery Element} $element
      * @param {string} icao
      * @param {string} data
      */
-    constructor(icao, data) {
+    // FIXME: `icao` might not be needed in this class
+    constructor($element, icao, data) {
+        /**
+         * The HTML view container of the data (formatted)
+         *
+         * @property $element
+         * @type {JQuery|HTMLElement}
+         */
+        this.$element = null;
+
         /**
          * Local instance of the airport guide data
          *
-         * @property data
+         * @property _airportGuideDictionary
          * @type {string}
          */
-        this.data = data;
+        this._airportGuideDictionary = data;
 
         /**
          * The icao airport code of the airport whose data we have
@@ -40,22 +40,16 @@ export default class AirportGuideViewModel {
         this.icao = icao;
 
         /**
-         * The HTML view container of the data (formatted)
-         *
-         * @property $element
-         * @type {JQuery|HTMLElement}
-         */
-        this.$element = null;
-
-        /**
          * The HTML containing the data itself
          *
          * @property $data
          * @type {JQuery|HTMLElement}
          */
-        this.$data = null;
+        this.$airportGuideView = null;
 
-        this.init();
+        return this._init()
+            ._createChildren($element)
+            .enable();
     }
 
     /**
@@ -63,28 +57,53 @@ export default class AirportGuideViewModel {
      * per lifecycle.
      *
      * @for AirportGuideViewModel
-     * @method init
+     * @method _init
      */
-    init() {
-        this.$element = $(GUIDE_VIEW_CONTAINER);
-        this.$data = $(GUIDE_DATA_CONTAINER);
-
-        this.$element.append(this.$data);
-
-        this.update(this.icao, this.data);
+    _init() {
+        return this;
     }
 
     /**
-     * Destroys the elements.
+     *
+     *
+     * @for AirportGuideViewModel
+     * @method _createChildren
+     * @param {JQuery Element} $element
+     * @private
+     * @chainable
+     */
+    _createChildren($element) {
+        this.$element = $element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_CONTAINER);
+        this.$airportGuideView = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_VIEW);
+
+        return this;
+    }
+
+    /**
+     *
+     *
+     * @for AirportGuideViewModel
+     * @method enable
+     * @private
+     * @chainable
+     */
+    enable() {
+        this.update(this.icao, this._airportGuideDictionary);
+
+        return this;
+    }
+
+    /**
+     * Destroys the instance
      *
      * @for AirportGuideViewModel
      * @method disable
      */
     disable() {
         this.icao = null;
-        this.data = null;
+        this._airportGuideDictionary = null;
         this.$element = null;
-        this.$data = null;
+        this.$airportGuideView = null;
     }
 
     /**
@@ -98,9 +117,10 @@ export default class AirportGuideViewModel {
      */
     update(icao, data) {
         this.icao = icao;
-        this.data = data;
+        this._airportGuideDictionary = data;
 
-        this.$data.html(data);
+        // FIXME: sanitize this
+        this.$airportGuideView.html(this._airportGuideDictionary);
     }
 
     /**

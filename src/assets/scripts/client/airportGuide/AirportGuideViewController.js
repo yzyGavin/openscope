@@ -24,7 +24,7 @@ export default class AirportGuideViewController {
          * @property $element
          * @type {JQuery|HTMLElement}
          */
-        this.$element = $element;
+        this.$element = null;
 
         /**
          * The ICAO of the initial airport.
@@ -49,7 +49,7 @@ export default class AirportGuideViewController {
          * @property $airportGuideTrigger
          * @type {JQuery|HTMLElement}
          */
-        this.$airportGuideTrigger = $(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_TRIGGER);
+        this.$airportGuideTrigger = null;
 
         /**
          * Contains an object with keys of icao idents and values
@@ -71,6 +71,7 @@ export default class AirportGuideViewController {
         this._eventBus = null;
 
         return this._init()
+            ._createChildren($element)
             ._setupHandlers()
             .enable();
     }
@@ -86,6 +87,26 @@ export default class AirportGuideViewController {
      */
     _init() {
         this._eventBus = EventBus;
+
+        return this;
+    }
+
+    /**
+     *
+     *
+     * @for AirportGuideViewController
+     * @method _createChildren
+     * @param {Jquery Element} $element
+     * @chainable
+     * @private
+     */
+    _createChildren($element) {
+        this.$airportGuideTrigger = $element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_TRIGGER);
+        this.airportGuideViewModel = new AirportGuideViewModel(
+            $element,
+            this.initialIcao,
+            this.getAirportGuide(this.initialIcao)
+        );
 
         return this;
     }
@@ -116,10 +137,7 @@ export default class AirportGuideViewController {
     enable() {
         this._eventBus.on(EVENT.AIRPORT_CHANGE, this._onAirportChangeHandler);
         this.$airportGuideTrigger.on('click', this._onElementToggleHandler);
-
-        this.airportGuideViewModel = new AirportGuideViewModel(this.initialIcao, this.getAirportGuide(this.initialIcao));
-
-        this.$element.append(this.airportGuideViewModel.$element);
+        // this.$element.append(this.airportGuideViewModel.$element);
 
         return this;
     }
@@ -159,7 +177,7 @@ export default class AirportGuideViewController {
     }
 
     /**
-     * Event handler for when a `airportGuideView` instance is clicked
+     * Event handler for when the `airportGuideView` instance is clicked
      *
      * @for airportGuideViewController
      * @method _onToggleAirportGuide

@@ -157,7 +157,6 @@ class UiController {
         this._eventBus = null;
         this.tutorialView = null;
         this.settingsController = null;
-
         this.$element = null;
         this.$airportDialog = null;
         this.$airportList = null;
@@ -414,6 +413,7 @@ class UiController {
      * @for UiController
      * @method onToggleAirportList
      */
+    // FIXME: not in use
     onToggleAirportList() {
         if (this.$airportDialog.hasClass(SELECTORS.CLASSNAMES.OPEN)) {
             this._onClickCloseAirportDialog();
@@ -423,7 +423,7 @@ class UiController {
 
         this._onClickOpenAirportDialog();
     }
-    
+
     /**
      * @for UiController
      * @method onAirportGuide

@@ -11,6 +11,8 @@ export const CLASSNAMES = {
     ACTIVE: 'active',
     AIRCRAFT: 'aircraft',
     AIRPORT_GUIDE: 'airportGuide-bd',
+    AIRPORT_GUIDE_CONTAINER: 'airportGuide-contrainer',
+    AIRPORT_GUIDE_VIEW: 'js-airportGuide-view',
     AIRPORT_GUIDE_IS_OPEN: 'airportGuide-container_isOpen',
     AIRPORT_GUIDE_TRIGGER: 'airport-guide-trigger',
     AIRPORT_LIST: 'airport-list',
