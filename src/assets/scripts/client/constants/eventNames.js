@@ -27,13 +27,6 @@ export const EVENT = {
     AIRPORT_CHANGE: 'airport-change',
 
     /**
-     * @memberof EVENT
-     * @property AIRPORT_GUIDE
-     * @type {string}
-     */
-    AIRPORT_GUIDE: 'airport-guide',
-
-    /**
      * A click was registered outside of a specific `StripViewModel`
      * and the active strip, if any, should have the `active`
      * css classname removed
@@ -162,6 +155,13 @@ export const EVENT = {
      * @type {string}
      */
     TIMEWARP_TOGGLE: 'timewarp-toggle',
+
+    /**
+     * @memberof EVENT
+     * @property TOGGLE_AIRPORT_GUIDE
+     * @type {string}
+     */
+    TOGGLE_AIRPORT_GUIDE: 'toggle-airport-guide',
 
     /**
      * @memberof EVENT
@@ -295,5 +295,4 @@ export const AIRCRAFT_EVENT = {
      * @type {string}
      */
     AIRSPACE_EXIT: 'airspace-exit'
-
-}
+};

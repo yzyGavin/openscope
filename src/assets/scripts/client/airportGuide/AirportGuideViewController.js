@@ -2,10 +2,14 @@ import _has from 'lodash/has';
 import EventBus from '../lib/EventBus';
 import AirportGuideView from './AirportGuideView';
 import { EVENT } from '../constants/eventNames';
-import { SELECTORS } from '../constants/selectors';
+// import { SELECTORS } from '../constants/selectors';
 
 /**
+ * Controls airportGuide view
  *
+ * Responsible for maintaining a dictionary of `{[icao: string] html string}`
+ * where each key is an airport icao with an html string as a value.
+ * This markup is generated during the build from source markdown files
  *
  * @class AirportGuideViewController
  */
@@ -14,41 +18,48 @@ export default class AirportGuideViewController {
      * @constructor
      * @param {JQuery|HTMLElement} $element
      * @param {object} airportGuideData  dictionary of airport icao and html string
-     * @param {string} initialIcao
+     * @param {string} initialIcao  airport used during startup of the app
      */
     constructor($element, airportGuideData, initialIcao) {
         /**
+         * Local reference to the EventBus
+         *
+         * @property _eventBus
+         * @type {EventBus}
+         * @private
+         */
+        this._eventBus = EventBus;
+
+        /**
          * Root DOM element
          *
-         * @property $element
+         * @property _$element
          * @type {JQuery|HTMLElement}
+         * @default null
+         * @private
          */
-        this.$element = null;
+        this._$element = null;
 
         /**
          * The ICAO of the initial airport.
          *
-         * @property initialIcao
+         * @property _initialIcao
          * @type {string}
+         * @private
          */
-        this.initialIcao = initialIcao.toLowerCase();
+        this._initialIcao = initialIcao.toLowerCase();
 
         /**
-         * Root list view element
+         * View instance model
          *
-         * @property airportGuideView
+         * Used to show, hide, update the airportGuide view
+         *
+         * @property _airportGuideView
          * @type {AirportGuideView}
+         * @default null
+         * @private
          */
-        this.airportGuideView = null;
-
-        // FIXME: move this click interaction to UiController
-        /**
-         * Trigger that toggles visibility of the `$airportGuideView`
-         *
-         * @property $airportGuideTrigger
-         * @type {JQuery|HTMLElement}
-         */
-        this.$airportGuideTrigger = null;
+        this._airportGuideView = null;
 
         /**
          * Contains an object with keys of icao idents and values
@@ -59,15 +70,6 @@ export default class AirportGuideViewController {
          * @private
          */
         this._guideData = airportGuideData;
-
-        /**
-         * Local reference to the EventBus
-         *
-         * @property _eventBus
-         * @type {EventBus}
-         * @private
-         */
-        this._eventBus = null;
 
         return this._init()
             ._createChildren($element)
@@ -103,9 +105,8 @@ export default class AirportGuideViewController {
      * @private
      */
     _createChildren($element) {
-        const activeAirportGuide = this.getAirportGuide(this.initialIcao);
-        this.$airportGuideTrigger = $element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_TRIGGER);
-        this.airportGuideView = new AirportGuideView($element, activeAirportGuide);
+        const activeAirportGuide = this.getAirportGuide(this._initialIcao);
+        this._airportGuideView = new AirportGuideView($element, activeAirportGuide);
 
         return this;
     }
@@ -121,7 +122,7 @@ export default class AirportGuideViewController {
      */
     _setupHandlers() {
         this._onAirportChangeHandler = this._onAirportChange.bind(this);
-        this._onElementToggleHandler = this._onToggleAirportGuide.bind(this);
+        this._onToggleViewHandler = this._onToggleView.bind(this);
 
         return this;
     }
@@ -135,7 +136,7 @@ export default class AirportGuideViewController {
      */
     enable() {
         this._eventBus.on(EVENT.AIRPORT_CHANGE, this._onAirportChangeHandler);
-        this.$airportGuideTrigger.on('click', this._onElementToggleHandler);
+        this._eventBus.on(EVENT.TOGGLE_AIRPORT_GUIDE, this._onToggleViewHandler);
 
         return this;
     }
@@ -149,7 +150,7 @@ export default class AirportGuideViewController {
      */
     disable() {
         this._eventBus.off(EVENT.AIRPORT_CHANGE, this._onAirportChangeHandler);
-        this.$airportGuideTrigger.off('click', this._onElementToggleHandler);
+        this._eventBus.off(EVENT.TOGGLE_AIRPORT_GUIDE, this._onToggleViewHandler);
 
         return this;
     }
@@ -163,13 +164,13 @@ export default class AirportGuideViewController {
      */
     destroy() {
         this._eventBus = null;
-        this.$element = null;
-        this.initialIcao = null;
-        this.airportGuideView = null;
+        this._$element = null;
+        this._initialIcao = null;
+        this._airportGuideView = null;
         this.$airportGuideTrigger = null;
         this._guideData = null;
         this._onAirportChangeHandler = null;
-        this._onElementToggleHandler = null;
+        this._onToggleViewHandler = null;
 
         return this;
     }
@@ -178,12 +179,12 @@ export default class AirportGuideViewController {
      * Event handler for when the `airportGuideView` instance is clicked
      *
      * @for airportGuideViewController
-     * @method _onToggleAirportGuide
+     * @method _onToggleView
      * @param event {JQueryEventObject}
      * @private
      */
-    _onToggleAirportGuide() {
-        this.airportGuideView.toggleView();
+    _onToggleView() {
+        this._airportGuideView.toggleView();
     }
 
     /**
@@ -198,12 +199,11 @@ export default class AirportGuideViewController {
         const nextIcao = nextAirportJson.icao.toLowerCase();
         const airportGuideMarkupString = this.getAirportGuide(nextIcao);
 
-        this.airportGuideView.update(airportGuideMarkupString);
+        this._airportGuideView.update(airportGuideMarkupString);
     }
 
     /**
-     * Main getter method for an airport guide,
-     * identified by ICAO.
+     * Main getter method for an airport guide, identified by ICAO
      *
      * @for AirportGuideViewController
      * @method getAirportGuide

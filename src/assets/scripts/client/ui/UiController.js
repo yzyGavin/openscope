@@ -27,7 +27,7 @@ class UiController {
         this.$airportDialog = null;
         this.$airportList = null;
         this.$airportListNotes = null;
-        this.$airportGuide = null;
+        this.$toggleAirportGuide = null;
         this.$tutorialDialog = null;
         this.$fastForwards = null;
         this.$githubLinkElement = null;
@@ -61,7 +61,7 @@ class UiController {
 
         this.$element = $element;
         this.$airportDialog = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_SWITCH);
-        this.$airportGuide = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE);
+        this.$toggleAirportGuide = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_TRIGGER);
         this.$tutorialDialog = this.$element.find(SELECTORS.DOM_SELECTORS.TOGGLE_TUTORIAL);
         this.$airportList = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_LIST);
         this.$fastForwards = this.$element.find(SELECTORS.DOM_SELECTORS.FAST_FORWARDS);
@@ -102,7 +102,7 @@ class UiController {
      */
     enable() {
         // TODO: move these to properly bound handler methods
-        this.$airportGuide.on('click', (event) => this.onAirportGuide(event));
+        this.$toggleAirportGuide.on('click', (event) => this.onToggleAirportGuide(event));
         this.$tutorialDialog.on('click', (event) => this._eventBus.trigger(EVENT.TOGGLE_TUTORIAL, event));
         this.$fastForwards.on('click', (event) => GameController.game_timewarp_toggle(event));
         this.$githubLinkElement.on('click', (event) => this.onClickGithubLink(event));
@@ -426,16 +426,15 @@ class UiController {
 
     /**
      * @for UiController
-     * @method onAirportGuide
+     * @method onToggleAirportGuide
+     * @param {jquery event}
      */
-    onAirportGuide() {
-        if (this.$airportGuide.hasClass(SELECTORS.CLASSNAMES.OPEN)) {
-            this._onClickCloseAirportGuide();
+    onToggleAirportGuide(event) {
+        const labelButtonElement = $(event.target).closest(SELECTORS.DOM_SELECTORS.CONTROL);
 
-            return;
-        }
-
-        this._onClickOpenAirportGuide();
+        EventTracker.recordEvent(TRACKABLE_EVENT.OPTIONS, 'airport-guide', `airport-guide:${labelButtonElement.hasClass(SELECTORS.CLASSNAMES.ACTIVE)}`);
+        labelButtonElement.toggleClass(SELECTORS.CLASSNAMES.ACTIVE);
+        this._eventBus.trigger(EVENT.TOGGLE_AIRPORT_GUIDE);
     }
 
     /**
@@ -448,7 +447,7 @@ class UiController {
 
         EventTracker.recordEvent(TRACKABLE_EVENT.OPTIONS, 'fix-runway-labels', `${labelButtonElement.hasClass(SELECTORS.CLASSNAMES.ACTIVE)}`);
         labelButtonElement.toggleClass(SELECTORS.CLASSNAMES.ACTIVE);
-        this._eventBus.trigger(EVENT.TOGGLE_LABELS);
+        this._eventBus.trigger(EVENT.TOGGLE_AIRPORT_GUIDE);
     }
 
     /**
