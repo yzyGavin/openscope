@@ -2,7 +2,6 @@ import _has from 'lodash/has';
 import EventBus from '../lib/EventBus';
 import AirportGuideView from './AirportGuideView';
 import { EVENT } from '../constants/eventNames';
-// import { SELECTORS } from '../constants/selectors';
 
 /**
  * Controls airportGuide view

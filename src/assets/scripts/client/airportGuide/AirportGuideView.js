@@ -117,7 +117,7 @@ export default class AirportGuideView {
     update(nextAirportMarkup) {
         this._airportGuideMarkup = nextAirportMarkup;
 
-        // FIXME: sanitize this
+        // TODO: determine if this needs to be sanitized
         this.$airportGuideView.html(this._airportGuideMarkup);
     }
 

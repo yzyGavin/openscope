@@ -19,30 +19,218 @@ class UiController {
      * @constructor
      */
     constructor() {
+        /**
+         * Local reference to `EventBus` singleton
+         *
+         * @property _eventBus
+         * @type {EventBus}
+         * @default null
+         */
         this._eventBus = null;
+
+        /**
+         * @property tutorialView
+         * @type {TutorialView}
+         * @default null
+         */
         this.tutorialView = null;
+
+        /**
+         * @property settingsController
+         * @type {SettingsController}
+         * @default null
+         */
         this.settingsController = null;
 
-        this.$element = null;
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $airportDialog
+         * @type {Jquery|Element}
+         * @default null
+         */
         this.$airportDialog = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $airportList
+         * @type {Jquery|Element}
+         * @default null
+         */
         this.$airportList = null;
-        this.$airportListNotes = null;
-        this.$toggleAirportGuide = null;
-        this.$tutorialDialog = null;
+
+        /**
+         * Root element used to find all other DOM elements
+         * needed by this class
+         *
+         * @property $element
+         * @type {Jquery|Element}
+         * @default null
+         */
+        this.$element = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $fastForwards
+         * @type {Jquery|Element}
+         * @default null
+         */
         this.$fastForwards = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $githubLinkElement
+         * @type {Jquery|Element}
+         * @default null
+         */
         this.$githubLinkElement = null;
-        this.$pauseToggle = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $pausedImg
+         * @type {Jquery|Element}
+         * @default null
+         */
         this.$pausedImg = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $pauseToggle
+         * @type {Jquery|Element}
+         * @default null
+         */
+        this.$pauseToggle = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $speechToggle
+         * @type {Jquery|Element}
+         * @default null
+         */
         this.$speechToggle = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $switchAirport
+         * @type {Jquery|Element}
+         * @default null
+         */
         this.$switchAirport = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $toggleAirportGuide
+         * @type {Jquery|Element}
+         * @default null
+         */
+        this.$toggleAirportGuide = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $toggleLabels
+         * @type {Jquery|Element}
+         * @default null
+         */
         this.$toggleLabels = null;
-        this.$toggleRestrictedAreas = null;
-        this.$toggleSids = null;
-        this.$toggleStars = null;
-        this.$toggleTerrain = null;
-        this.$toggleTutorial = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $toggleOptions
+         * @type {Jquery|Element}
+         * @default null
+         */
         this.$toggleOptions = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $toggleRestrictedAreas
+         * @type {Jquery|Element}
+         * @default null
+         */
+        this.$toggleRestrictedAreas = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $toggleSids
+         * @type {Jquery|Element}
+         * @default null
+         */
+        this.$toggleSids = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $toggleStars
+         * @type {Jquery|Element}
+         * @default null
+         */
+        this.$toggleStars = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $toggleTerrain
+         * @type {Jquery|Element}
+         * @default null
+         */
+        this.$toggleTerrain = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $toggleTutorial
+         * @type {Jquery|Element}
+         * @default null
+         */
+        this.$toggleTutorial = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $toggleVideoMap
+         * @type {Jquery|Element}
+         * @default null
+         */
         this.$toggleVideoMap = null;
+
+        /**
+         * Footer button element used as a hook to
+         * activate/show option
+         *
+         * @property $tutorialDialog
+         * @type {Jquery|Element}
+         * @default null
+         */
+        this.$tutorialDialog = null;
     }
 
     /**
@@ -58,7 +246,6 @@ class UiController {
         this._eventBus = EventBus;
         this.tutorialView = new TutorialView($element);
         this.settingsController = new SettingsController($element);
-
         this.$element = $element;
         this.$airportDialog = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_SWITCH);
         this.$toggleAirportGuide = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_TRIGGER);
@@ -447,7 +634,7 @@ class UiController {
 
         EventTracker.recordEvent(TRACKABLE_EVENT.OPTIONS, 'fix-runway-labels', `${labelButtonElement.hasClass(SELECTORS.CLASSNAMES.ACTIVE)}`);
         labelButtonElement.toggleClass(SELECTORS.CLASSNAMES.ACTIVE);
-        this._eventBus.trigger(EVENT.TOGGLE_AIRPORT_GUIDE);
+        this._eventBus.trigger(EVENT.TOGGLE_LABELS);
     }
 
     /**
