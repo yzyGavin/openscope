@@ -1,6 +1,6 @@
 import _has from 'lodash/has';
 import EventBus from '../lib/EventBus';
-import AirportGuideViewModel from './AirportGuideViewModel';
+import AirportGuideView from './AirportGuideView';
 import { EVENT } from '../constants/eventNames';
 import { SELECTORS } from '../constants/selectors';
 
@@ -37,9 +37,9 @@ export default class AirportGuideViewController {
          * Root list view element
          *
          * @property airportGuideView
-         * @type {AirportGuideViewModel}
+         * @type {AirportGuideView}
          */
-        this.airportGuideViewModel = null;
+        this.airportGuideView = null;
 
         // FIXME: move this click interaction to UiController
         /**
@@ -105,7 +105,7 @@ export default class AirportGuideViewController {
     _createChildren($element) {
         const activeAirportGuide = this.getAirportGuide(this.initialIcao);
         this.$airportGuideTrigger = $element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_TRIGGER);
-        this.airportGuideViewModel = new AirportGuideViewModel($element, activeAirportGuide);
+        this.airportGuideView = new AirportGuideView($element, activeAirportGuide);
 
         return this;
     }
@@ -165,7 +165,7 @@ export default class AirportGuideViewController {
         this._eventBus = null;
         this.$element = null;
         this.initialIcao = null;
-        this.airportGuideViewModel = null;
+        this.airportGuideView = null;
         this.$airportGuideTrigger = null;
         this._guideData = null;
         this._onAirportChangeHandler = null;
@@ -183,7 +183,7 @@ export default class AirportGuideViewController {
      * @private
      */
     _onToggleAirportGuide() {
-        this.airportGuideViewModel.toggleView();
+        this.airportGuideView.toggleView();
     }
 
     /**
@@ -198,7 +198,7 @@ export default class AirportGuideViewController {
         const nextIcao = nextAirportJson.icao.toLowerCase();
         const airportGuideMarkupString = this.getAirportGuide(nextIcao);
 
-        this.airportGuideViewModel.update(airportGuideMarkupString);
+        this.airportGuideView.update(airportGuideMarkupString);
     }
 
     /**
