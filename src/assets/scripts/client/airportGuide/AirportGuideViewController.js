@@ -70,7 +70,7 @@ export default class AirportGuideViewController {
          */
         this._guideData = airportGuideData;
 
-        return this._init()
+        return this.init()
             ._createChildren($element)
             ._setupHandlers()
             .enable();
@@ -83,10 +83,9 @@ export default class AirportGuideViewController {
      *
      * @for airportGuideViewController
      * @method init
-     * @private
      * @chainable
      */
-    _init() {
+    init() {
         this._eventBus = EventBus;
 
         return this;
@@ -166,7 +165,6 @@ export default class AirportGuideViewController {
         this._$element = null;
         this._initialIcao = null;
         this._airportGuideView = null;
-        this.$airportGuideTrigger = null;
         this._guideData = null;
         this._onAirportChangeHandler = null;
         this._onToggleViewHandler = null;

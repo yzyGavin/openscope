@@ -4,7 +4,6 @@ const colors = require('ansi-colors');
 const path = require('path');
 const mkdirp = require('mkdirp');
 const showdown = require('showdown');
-
 const options = require('../options');
 
 /**
@@ -116,6 +115,7 @@ function markdownAssembler() {
 
     const airportGuideDict = _generateAirportGuideDict();
     const markdown = parseFiles(airportGuideDict);
+
     _writeFileOutput(markdown);
 
     return Promise.resolve();

@@ -12,6 +12,9 @@ import { SELECTORS } from '../constants/selectors';
 import { TRACKABLE_EVENT } from '../constants/trackableEvents';
 
 /**
+ * Will listen for events that occur in the UI and
+ * delegate work off to the correct place
+ *
  * @class UiController
  */
 class UiController {
@@ -634,7 +637,7 @@ class UiController {
      * @method onToggleAirportGuide
      */
     onToggleAirportGuide() {
-        const labelButtonElement = $(SELECTORS.CLASSNAMES.AIRPORT_GUIDE_TRIGGER);
+        const labelButtonElement = $(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_TRIGGER);
 
         EventTracker.recordEvent(TRACKABLE_EVENT.OPTIONS, 'airport-guide', `airport-guide:${labelButtonElement.hasClass(SELECTORS.CLASSNAMES.ACTIVE)}`);
         labelButtonElement.toggleClass(SELECTORS.CLASSNAMES.ACTIVE);

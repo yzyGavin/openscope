@@ -21,27 +21,30 @@ export default class AirportGuideView {
         /**
          * The HTML view container of the data (formatted)
          *
-         * @property $element
+         * @property _$element
          * @type {JQuery|HTMLElement}
          * @default null
+         * @private
          */
-        this.$element = null;
+        this._$element = null;
 
         /**
          * Local instance of the airport guide data
          *
          * @property _airportGuideMarkup
          * @type {string}
+         * @private
          */
         this._airportGuideMarkup = data;
 
         /**
          * The HTML containing the data itself
          *
-         * @property $data
+         * @property _$airportGuideView
          * @type {JQuery|HTMLElement}
+         * @private
          */
-        this.$airportGuideView = null;
+        this._$airportGuideView = null;
 
         return this.init()
             ._createChildren($element)
@@ -73,8 +76,8 @@ export default class AirportGuideView {
      * @chainable
      */
     _createChildren($element) {
-        this.$element = $element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_CONTAINER);
-        this.$airportGuideView = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_VIEW);
+        this._$element = $element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_CONTAINER);
+        this._$airportGuideView = this._$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_VIEW);
 
         return this;
     }
@@ -101,8 +104,8 @@ export default class AirportGuideView {
      */
     disable() {
         this._airportGuideMarkup = null;
-        this.$element = null;
-        this.$airportGuideView = null;
+        this._$element = null;
+        this._$airportGuideView = null;
     }
 
     /**
@@ -117,7 +120,7 @@ export default class AirportGuideView {
         this._airportGuideMarkup = nextAirportMarkup;
 
         // TODO: determine if this needs to be sanitized
-        this.$airportGuideView.html(this._airportGuideMarkup);
+        this._$airportGuideView.html(this._airportGuideMarkup);
     }
 
     /**
@@ -129,6 +132,6 @@ export default class AirportGuideView {
      * @method toggleView
      */
     toggleView() {
-        this.$element.toggleClass(SELECTORS.CLASSNAMES.AIRPORT_GUIDE_IS_OPEN);
+        this._$element.toggleClass(SELECTORS.CLASSNAMES.AIRPORT_GUIDE_IS_OPEN);
     }
 }
