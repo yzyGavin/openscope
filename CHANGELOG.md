@@ -2,6 +2,7 @@
 ### New Features
 - [#898](https://github.com/openscope/openscope/issues/898) - Add command to exit holding pattern
 - [#1272](https://github.com/openscope/openscope/issues/1272) - Add version number to settings menu
+- [#1105](https://github.com/openscope/openscope/issues/1105) - Adds in-sim Airport Guide accessible via footer button
 
 
 ### Bugfixes
