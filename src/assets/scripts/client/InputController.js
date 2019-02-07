@@ -331,7 +331,7 @@ export default class InputController {
     _onKeydown(event) {
         const currentCommandInputValue = this.$commandInput.val();
 
-        let code = event.originalEvent.code;
+        let { code } = event.originalEvent;
 
         if (code === undefined) {
             // fallback for legacy browsers like IE/Edge

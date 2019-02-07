@@ -43,8 +43,7 @@ class UiController {
         this.settingsController = null;
 
         /**
-         * Footer button element used as a hook to
-         * activate/show option
+         * Dialog element toggeled via footer button
          *
          * @property $airportDialog
          * @type {Jquery|Element}
@@ -53,8 +52,16 @@ class UiController {
         this.$airportDialog = null;
 
         /**
-         * Footer button element used as a hook to
-         * activate/show option
+         * Dialog element toggeled via footer button
+         *
+         * @property $airportDialog
+         * @type {Jquery|Element}
+         * @default null
+         */
+        this.$airportGuideDialog = null;
+
+        /**
+         * Dialog element toggeled via footer button
          *
          * @property $airportList
          * @type {Jquery|Element}
@@ -248,6 +255,7 @@ class UiController {
         this.settingsController = new SettingsController($element);
         this.$element = $element;
         this.$airportDialog = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_SWITCH);
+        this.$airportGuideDialog = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_CONTAINER);
         this.$toggleAirportGuide = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_GUIDE_TRIGGER);
         this.$tutorialDialog = this.$element.find(SELECTORS.DOM_SELECTORS.TOGGLE_TUTORIAL);
         this.$airportList = this.$element.find(SELECTORS.DOM_SELECTORS.AIRPORT_LIST);
@@ -346,6 +354,7 @@ class UiController {
         this.settingsController = null;
         this.$element = null;
         this.$airportDialog = null;
+        this.$airportGuideDialog = null;
         this.$airportList = null;
         this.$fastForwards = null;
         this.$githubLinkElement = null;
@@ -394,6 +403,10 @@ class UiController {
         if (this.isAirportSelectionDialogOpen()) {
             this.onToggleAirportList();
         }
+
+        if (this.isAirportGuideDialogOpen()) {
+            this.onToggleAirportGuide();
+        }
     }
 
     /**
@@ -405,6 +418,11 @@ class UiController {
      */
     isAirportSelectionDialogOpen() {
         return this.$airportDialog.hasClass(SELECTORS.CLASSNAMES.OPEN);
+    }
+
+
+    isAirportGuideDialogOpen() {
+        return this.$airportGuideDialog.hasClass(SELECTORS.CLASSNAMES.AIRPORT_GUIDE_IS_OPEN);
     }
 
     /**
@@ -614,10 +632,9 @@ class UiController {
     /**
      * @for UiController
      * @method onToggleAirportGuide
-     * @param {jquery event}
      */
-    onToggleAirportGuide(event) {
-        const labelButtonElement = $(event.target).closest(SELECTORS.DOM_SELECTORS.CONTROL);
+    onToggleAirportGuide() {
+        const labelButtonElement = $(SELECTORS.CLASSNAMES.AIRPORT_GUIDE_TRIGGER);
 
         EventTracker.recordEvent(TRACKABLE_EVENT.OPTIONS, 'airport-guide', `airport-guide:${labelButtonElement.hasClass(SELECTORS.CLASSNAMES.ACTIVE)}`);
         labelButtonElement.toggleClass(SELECTORS.CLASSNAMES.ACTIVE);
