@@ -1274,7 +1274,7 @@
             "origin": "",
             "destination": "kmia",
             "category": "arrival",
-            "route": "MTH.CURSO5.KMIA9",
+            "route": "CANOA..EADEN.CURSO5.KMIA9",
             "altitude": 10000,
             "speed": 250,
             "method": "random",
